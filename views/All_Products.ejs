@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products - Apple Store</title>
+    <link rel="stylesheet" href="/output.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/AllAccessories.css">
+</head>
+<body>
+    <!-- Homepage-style overlay menu (slides from right) -->
+    <div class="menu h-[100vh] fixed top-0 right-0 z-[9999] bg-gradient-to-b from-gray-700 to-black w-full hidden justify-around text-white transform translate-x-full transition-transform duration-300">
+        <div class="flex flex-col gap-6 justify-around h-[100%]">
+            <i class="close-icon ri-close-line cursor-pointer text-5xl"></i>
+            <div class="flex flex-col gap-4 mt-10 text-2xl">
+                <a class="text-[#D1CEB2]" href="/">Home</a>
+                <a href="/All_Products">All Products</a>
+                <a href="/Accessories">Accessories</a>
+                <a href="/Support">Support</a>
+                <a href="#">Gallery</a>
+            </div>
+            <h1 class="relative text-5xl bottom-5">Designed to be loved.</h1>
+        </div>
+        <div>
+            <img src="/picsss/abhijeet-barak-44qLAVHJsco-unsplash.jpg" class="w-[100%] h-full" alt="photo">
+        </div>
+    </div>
+
+    <!-- Overlay backdrop -->
+    <div class="menu-overlay fixed inset-0 bg-black/50 z-[9998] hidden"></div>
+    <div class="container">
+        <div class="PageHeader">
+            <h1 class="page-title">All Products</h1>
+            <div class="CartandMenu">
+            <a href="/Cart"><i class="ri-shopping-cart-line"></i></a>
+            <i id="menuTrigger" class="ri-menu-line text-white text-3xl cursor-pointer"></i>
+            </div>
+        </div>
+        
+        <div class="products-grid">
+            <% products.forEach(function(product) { %>
+                <a href="/product/<%= product.productKey %>" class="product-card-link">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <% if (product.badge) { %>
+                                <span class="badge"><%= product.badge %></span>
+                            <% } %>
+                            <button class="favorite-btn" data-product-id="<%= product.id %>" onclick="event.preventDefault(); event.stopPropagation();">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                            <% if (product.ProductThumbnail) { %>
+                                <img src="<%= product.ProductThumbnail %>" alt="<%= product.name %>" class="product-image" />
+                            <% } %>
+                        </div>
+                        
+                        <div class="product-info">
+                            <h3 class="product-name"><%= product.name %></h3>
+                            <p class="product-specs"><%= product.display ? String(product.display).replace(' display', '') : '' %> | <%= product.chip %></p>
+                            
+                            <div class="product-footer">
+                                <span class="product-price"><%= product.price %></span>
+                                <button class="cta-btn" onclick="event.preventDefault(); event.stopPropagation();">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            <% }); %>
+        </div>
+    </div>
+
+    <script>
+        // Overlay menu toggle (slide from right)
+        (function(){
+          const menu = document.querySelector('.menu');
+          const overlay = document.querySelector('.menu-overlay');
+          const menuIcon = document.getElementById('menuTrigger');
+          const closeIcon = document.querySelector('.close-icon');
+          const open = () => { menu.classList.remove('hidden','translate-x-full','translate-x-[-100%]'); menu.classList.add('flex','translate-x-0'); overlay.classList.remove('hidden'); };
+          const close = () => { menu.classList.remove('translate-x-0'); menu.classList.add('translate-x-full'); overlay.classList.add('hidden'); };
+          menuIcon && menuIcon.addEventListener('click', open);
+          closeIcon && closeIcon.addEventListener('click', close);
+          overlay && overlay.addEventListener('click', close);
+        })();
+
+        // Toggle favorite functionality
+        document.querySelectorAll('.favorite-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+
+        // Buy button functionality
+        document.querySelectorAll('.cta-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Add your cart/buy functionality here
+                console.log('Buy Now clicked');
+            });
+        });
+    </script>
+</body>
+</html>

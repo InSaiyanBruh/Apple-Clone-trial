@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone</title>
+    <link rel="icon" type="image/x-icon" href="/picsss/Logo/iphone Icon.ico">
+    <link rel="stylesheet" href="/output.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/minimo" rel="stylesheet">
+
+    <link rel="stylesheet" href="../stylesheets/index.css">
+</head>
+
+<body>
+    <!-- Loader -->
+    <!-- <div class="loader-container" id="loader">
+        <div class="loader-logo">iPhone</div>
+        <div class="loader-spinner"></div>
+        <div class="loader-text">Loading Experience...</div>
+    </div> -->
+
+    <!-- Menu -->
+    <div
+        class="menu h-[100vh] fixed left-0 top-0 z-[9999] bg-gradient-to-b from-gray-700 to-black w-full hidden justify-around text-white">
+        <div class="flex flex-col gap-6 justify-around h-[100%]">
+            <i class="close-icon ri-close-line cursor-pointer text-5xl"></i>
+
+            <div class="flex flex-col gap-4 mt-10 text-2xl">
+                <a class="text-[#D1CEB2]" href="/">Home</a>
+                <a href="/All_Products">All Products</a>
+                <a href="/Accessories">Accessories</a>
+                <a href="/Support">Support</a>
+                <a href="#">Gallery</a>
+            </div>
+
+            <h1 class="relative text-5xl bottom-5">Designed to be loved.</h1>
+        </div>
+
+        <div>
+            <img src="/picsss/abhijeet-barak-44qLAVHJsco-unsplash.jpg" class="w-[100%] h-full" alt="photo">
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <div
+        class="Navbar sticky h-[6rem] flex justify-between items-center bg-[linear-gradient(to_bottom,_#4b5563,_#1f2937,_#0d0d0d,_#000000)] z-[2]">
+        <i class="menu-icon ri-menu-line Menu text-[30px] text-white relative left-[30px] cursor-pointer"></i>
+        <% if (!user) { %>
+            <img class="AppleLogo ml-35" src="../picsss/Logo/apple-512.png" alt="">
+            <% } else { %>
+            <img class="AppleLogo ml-15" src="../picsss/Logo/apple-512.png" alt="">
+        <% } %>
+        <div class="relative right-[2rem] justify-center flex gap-3">
+            <% if (!user) { %>
+                <a href="/Login"><button
+                        class="nav-btn bg-white font-bold cursor-pointer border-white text-black p-1 w-[5rem] h-[30px] rounded-[5px]">Log
+                        in</button></a>
+                <a href="/Signup"><button
+                        class="nav-btn bg-white font-bold cursor-pointer border-white text-black p-1 w-[5rem] h-[30px] rounded-[5px]">Sign
+                        up</button></a>
+                <% } else { %>
+                    <div class="account-container" id="accountMenu">
+                        <a href="/Cart"><i class="ri-shopping-cart-line"></i></a>
+                        <% if (user && user.avatar) { %>
+                        <img src="<%= user.avatar %>" id="userIcon" alt="avatar" class="user-avatar">
+                        <% } else { %>
+                        <i class="ri-account-circle-line" id="userIcon"></i>
+                        <% } %>
+                        <div class="dropdown" id="dropdownMenu">
+                            <button class="Welcome">Welcome, <%= user.username %></button>
+                            <button><a href="/profile">View Profile</a></button>
+                            <button><a href="#" onclick="logout()">Log out</a></button>
+                        </div>
+                    </div>
+                    <% } %>
+        </div>
+    </div>
+
+    <!-- Canvas Section -->
+    <div class="w-full bg-zinc-900">
+        <div class="parent relative top-0 left-0 w-full h-[700vh] z-[1]">
+            <div class="w-full sticky top-0 left-0 h-screen">
+                <canvas class="w-full h-screen bg-black" id="canvas"></canvas>
+
+                <!-- Intro Overlay -->
+                <div class="intro-overlay" id="introOverlay">
+                    <h1 class="intro-title">Experience Innovation</h1>
+                    <p class="intro-subtitle">Discover the future of technology with our latest iPhone. Every detail
+                        crafted to perfection, every moment designed to inspire.</p>
+                    <div class="scroll-indicator">
+                        <span class="scroll-text">Scroll to explore</span>
+                        <i class="scroll-arrow ri-arrow-down-line"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-black h-10"></div>
+
+    <!-- Features Section -->
+    <div class="bg-black h-screen text-white flex gap-40 items-center justify-around">
+        <div>
+            <img id="iphone" src="/picsss/image-removebg-preview.png" alt="">
+        </div>
+        <div id="feature" class="top-div flex flex-col gap-[2rem]">
+            <div>
+                <h1 class="text-[27px]">Introducing the Future of Smart Design</h1>
+                <p class="text-[14px] opacity-50">Unmatched Precision. Ultimate Control.</p>
+            </div>
+            <div>
+                <p class="text-[20px] w-[859px]">Experience our newest model, built for those who demand perfection in
+                    every tap, swipe, and scroll.</p>
+            </div>
+            <div class="text-white flex flex-col gap-[1rem]">
+                <div class="flex flex-row gap-1">
+                    <i class="ri-arrow-right-line"></i>
+                    <p>Performance-first Engineering - Lightning-fast response times.</p>
+                </div>
+                <div class="flex flex-row gap-1">
+                    <i class="ri-arrow-right-line"></i>
+                    <p>Security at Core - Your data, safeguarded with next-gen encryption.</p>
+                </div>
+                <div class="flex flex-row gap-1">
+                    <i class="ri-arrow-right-line"></i>
+                    <p>All-Day Battery - Stay powered through everything.</p>
+                </div>
+            </div>
+            <div>
+                <p><span class="italic text-[#CDCCAB]">Redefining elegance</span>. Designed to captivate from every
+                    angle</p>
+            </div>
+            <div>
+                <img src="pictures/qoute.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- Display Video Section -->
+    <div class="bg-black h-screen">
+        <div class="flex items-center justify-center h-screen">
+            <video id="batteryVideo" src="Display.mp4" class="w-[50%] h-[50%] object-cover object-center" autoplay loop
+                muted></video>
+        </div>
+    </div>
+
+    <div class="bg-black h-10"></div>
+
+    <!-- Swiper Section -->
+    <div class="w-full h-full py-10 bg-gradient-to-b from-black to-gray-700">
+        <h1 class="font-bold text-4xl ml-20 text-transparent bg-[linear-gradient(to_bottom,_gray,_white)] bg-clip-text">
+            Get to know iPhone</h1>
+
+        <div class="swiper mySwiper mt-6">
+            <div class="swiper-wrapper">
+                <div onclick="openModal()"
+                    class="swiper-slide w-[240px] min-h-[32rem] bg-black rounded-2xl overflow-hidden relative">
+                    <img src="/picsss/img-1.jpg" alt="AI" class="absolute inset-0 w-full h-full object-cover z-0" />
+                    <div class="relative z-10 p-4">
+                        <h4 class="text-base font-medium text-white">Apple Intelligence</h4>
+                        <p class="text-amber-200 text-xl font-semibold mt-1">AI-opening possibilities.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide w-[240px] min-h-[32rem] bg-black rounded-2xl overflow-hidden relative">
+                    <div class="relative z-10 p-4">
+                        <h4 class="text-base font-medium text-white">Apple Intelligence</h4>
+                        <p class="text-amber-200 text-xl font-semibold mt-1">AI-opening possibilities.</p>
+                    </div>
+                    <img src="/picsss/img-2.jpg" alt="AI"
+                        class="absolute translate-y-[-120px] inset-0 w-full h-full object-cover z-0" />
+                </div>
+                <div class="swiper-slide w-[240px] min-h-[32rem] bg-black rounded-2xl overflow-hidden relative">
+                    <img src="/picsss/img-3.jpg" alt="AI"
+                        class="absolute translate-y-[-120px] inset-0 w-full h-full object-cover z-0" />
+                    <div class="relative z-10 p-4">
+                        <h4 class="text-base font-medium text-white">Apple Intelligence</h4>
+                        <p class="text-amber-200 text-xl font-semibold mt-1">AI-opening possibilities.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide w-[240px] min-h-[32rem] bg-black rounded-2xl overflow-hidden relative">
+                    <img src="/picsss/img-4.jpg" alt="AI"
+                        class="absolute translate-y-[-120px] inset-0 w-full h-full object-cover z-0" />
+                    <div class="relative z-10 p-4">
+                        <h4 class="text-base font-medium text-white">Apple Intelligence</h4>
+                        <p class="text-amber-200 text-xl font-semibold mt-1">AI-opening possibilities.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide w-[240px] min-h-[32rem] bg-black rounded-2xl overflow-hidden relative">
+                    <img src="/picsss/img-5.jpg" alt="AI"
+                        class="absolute translate-y-[-120px] inset-0 w-full h-full object-cover z-0" />
+                    <div class="relative z-10 p-4">
+                        <h4 class="text-base font-medium text-white">Apple Intelligence</h4>
+                        <p class="text-amber-200 text-xl font-semibold mt-1">AI-opening possibilities.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide w-[240px] min-h-[32rem] bg-black rounded-2xl overflow-hidden relative">
+                    <img src="/picsss/img-6.jpg" alt="AI" class="absolute inset-0 w-full h-full object-cover z-0" />
+                    <div class="relative z-10 p-4">
+                        <h4 class="text-base font-medium text-white">Apple Intelligence</h4>
+                        <p class="text-amber-200 text-xl font-semibold mt-1">AI-opening possibilities.</p>
+                    </div>
+                </div>
+                <div class="swiper-slide w-[240px] min-h-[32rem] bg-black rounded-2xl overflow-hidden relative">
+                    <img src="/picsss/img-7.jpg" alt="AI"
+                        class="absolute translate-y-[-120px] inset-0 w-full h-full object-cover z-0" />
+                    <div class="relative z-10 p-4">
+                        <h4 class="text-base font-medium text-white">Apple Intelligence</h4>
+                        <p class="text-amber-200 text-xl font-semibold mt-1">AI-opening possibilities.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-button-prev !text-white"></div>
+            <div class="swiper-button-next !text-white"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="SlidesInfoDisplay">
+        <div class="modal" id="infoModal">
+            <div class="ModalContainer">
+                <div class="ModalHeader">
+                    <h1>iPhone 17 Pro</h1>
+                    <div class="close-btn" onclick="closeModal()">&times;</div>
+                </div>
+                <div class="modal-content">
+
+                    <div class="Modalimgcontainer">
+                        <img src="../picsss/More Info Images/Modal img 1.png" alt="">
+                    </div>
+
+                    <h2>Beautiful and durable, by design.</h2>
+                    <p><b>Second to none.</b> iPhone is known for its iconic design and advanced materials — like iPhone
+                        17 Pro, which has a heat-forged aluminium unibody, and is built to deliver exceptional
+                        performance. Our thinnest iPhone ever, iPhone Air. Hardware and software are designed in tandem
+                        — like Dynamic Island, Camera Control and the Action button.</p>
+
+                    <h3 class="MoreInfoButton">More Info<i class="ri-arrow-down-s-line"></i></h3>
+                    <p class="MoreInfo">The Apple iPhone 17 Pro is Apple’s 2025 flagship smartphone, redefining premium
+                        design and performance. It features a 6.3-inch OLED Super Retina XDR display with ProMotion
+                        technology for a smooth 120 Hz refresh rate, ultra-high brightness up to 3,000 nits, and
+                        Always-On functionality. The device is crafted from a forged aluminium unibody with a ceramic
+                        shield front, offering both durability and a sleek modern look. Powered by the new A19 Pro chip,
+                        it delivers exceptional speed, improved energy efficiency, and advanced AI capabilities through
+                        Apple Intelligence on iOS 26.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="w-full min-h-screen py-20 bg-gradient-to-b from-gray-700 via-gray-800 to-black">
+        <div class="max-w-7xl mx-auto px-8">
+            <h1
+                class="font-bold text-5xl md:text-6xl text-center mb-4 text-transparent bg-gradient-to-b from-gray-400 to-white bg-clip-text">
+                Step into the amazing world of iPhone
+            </h1>
+            <p class="text-center text-gray-400 text-lg mb-16 max-w-2xl mx-auto">
+                Explore stunning design, powerful performance, and breathtaking photography
+            </p>
+
+            <!-- Main Hero Image -->
+            <div class="relative mb-8 overflow-hidden rounded-3xl shadow-2xl group">
+                <div class="relative h-[500px] md:h-[600px]">
+                    <img src="/picsss/Galary/Blue Iphone BG Black.png"
+                        class="gallery-main w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        alt="iPhone">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Gallery -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="relative overflow-hidden rounded-2xl shadow-xl group cursor-pointer">
+                    <div class="h-[300px] md:h-[400px]">
+                        <img src="/picsss/dushawn-jovic-xhZ6-Et_ses-unsplash.jpg"
+                            class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-75"
+                            alt="iPhone Camera">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 class="text-white font-semibold text-xl mb-2">Pro Camera System</h3>
+                        <p class="text-gray-300 text-sm">Capture life in stunning detail</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="relative overflow-hidden rounded-2xl shadow-xl group cursor-pointer">
+                    <div class="h-[300px] md:h-[400px]">
+                        <img src="/picsss/Galary/Quinn Battick.png"
+                            class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-75"
+                            alt="iPhone Design">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 class="text-white font-semibold text-xl mb-2">Premium Design</h3>
+                        <p class="text-gray-300 text-sm">Crafted from aerospace-grade materials</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="relative overflow-hidden rounded-2xl shadow-xl group cursor-pointer">
+                    <div class="h-[300px] md:h-[400px]">
+                        <img src="/picsss/grigorii-shcheglov-LnMaEiUPT6I-unsplash.jpg"
+                            class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-75"
+                            alt="iPhone Display">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 class="text-white font-semibold text-xl mb-2">Super Retina Display</h3>
+                        <p class="text-gray-300 text-sm">Colors that come alive</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 (Spans 2 columns on larger screens) -->
+                <div class="relative overflow-hidden rounded-2xl shadow-xl group cursor-pointer md:col-span-2">
+                    <div class="h-[300px]">
+                        <img src="/picsss/howard-bouchevereau-qJZqXSBr7_s-unsplash.jpg"
+                            class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-75"
+                            alt="iPhone Features">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 class="text-white font-semibold text-xl mb-2">Advanced Features</h3>
+                        <p class="text-gray-300 text-sm">Innovation in every pixel</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="relative overflow-hidden rounded-2xl shadow-xl group cursor-pointer">
+                    <div class="h-[300px]">
+                        <img src="/picsss/dushawn-jovic-xhZ6-Et_ses-unsplash.jpg"
+                            class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-75"
+                            alt="iPhone Lifestyle">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 class="text-white font-semibold text-xl mb-2">Your Perfect Companion</h3>
+                        <p class="text-gray-300 text-sm">Designed for your lifestyle</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-black h-10"></div>
+
+    <!-- Battery Video Section -->
+    <div class="bg-black h-screen">
+        <div class="flex items-center justify-center h-screen">
+            <video id="batteryVideo2" src="battery.mp4" class="object-cover object-center" autoplay muted></video>
+        </div>
+    </div>
+
+    <div class="bg-black h-30"></div>
+
+    <div class="CoolSliderPage">
+        <i class="ri-arrow-left-circle-line"></i>
+        <div class="SliderCircle">
+        <div class="circle-container">
+            <img src="../picsss/Products/iPhone 17 front and back.png" alt="">
+            <img src="../picsss/Products/iPhone 17 front and back.png" alt="">
+            <img src="../picsss/Products/iPhone 17 front and back.png" alt="">
+            <img src="../picsss/Products/iPhone 17 front and back.png" alt="">
+            <img src="../picsss/Products/iPhone 17 front and back.png" alt="">
+            <img src="../picsss/Products/iPhone 17 front and back.png" alt="">
+            <img src="../picsss/Products/iPhone 17 front and back.png" alt="">
+            <img src="../picsss/Products/iPhone 17 front and back.png" alt="">
+        </div>
+        </div>
+        <i class="ri-arrow-right-circle-line"></i>
+        <div class="SliderInfo">
+            <div class="slider-info-content">
+                <h2 id="slider-title">iPhone</h2>
+                <p id="slider-speciality">Powerful. Intuitive. Designed to be loved.</p>
+                <a id="slider-link" href="#" class="learn-more-btn">Learn more</a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="bg-black h-screen"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
+        integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/script/script.js"></script>
+    <script>
+        // User account dropdown toggle
+        const userIcon = document.getElementById('userIcon');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        if (userIcon && dropdownMenu) {
+            userIcon.addEventListener('click', function (e) {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('show');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!document.getElementById('accountMenu').contains(e.target)) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+        }
+
+        // Logout function
+        function logout() {
+            fetch('/logout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                }
+            })
+                .then(response => {
+                    if (response.redirected) {
+                        window.location.href = response.url;
+                    } else {
+                        window.location.href = '/';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    window.location.href = '/';
+                });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - iPhone Store</title>
+    <link rel="stylesheet" href="/styles/DeliveryAddressPage.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Section - Delivery Address -->
+        <div class="delivery-section">
+            <h1>Delivery address:</h1>
+            
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="houseNo">House no., Flat no., Floor:</label>
+                    <input type="text" id="houseNo" name="houseNo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="colony">Colony, Town, etc:</label>
+                    <input type="text" id="colony" name="colony" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="street">Street, Region, etc:</label>
+                    <input type="text" id="street" name="street" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <select id="country" name="country" required>
+                            <option value="">Select Country</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <select id="state" name="state" required disabled>
+                            <option value="">Select State</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <select id="city" name="city" required disabled>
+                            <option value="">Select City</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pincode">Pincode:</label>
+                        <input type="text" id="pincode" name="pincode" maxlength="6" required>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Right Section - Order Summary -->
+        <div class="order-section">
+            <div class="items-container" id="itemsContainer">
+                <!-- Items will be injected here from localStorage -->
+            </div>
+
+            <div class="coupon-group">
+                <label for="coupon">Apply Coupon:</label>
+                <input type="text" id="coupon" name="coupon" placeholder="Enter coupon code">
+            </div>
+
+            <div class="price-details">
+                <div class="price-row">
+                    <span class="price-label">Price:</span>
+                    <span class="price-value" id="subtotalValue">₹0</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">Delivery Charges:</span>
+                    <span class="price-value" id="deliveryValue">₹0</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">Savings:</span>
+                    <span class="price-value" id="savingsValue" style="color: #4ade80;">₹0</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">Taxes:</span>
+                    <span class="price-value" id="taxesValue">₹0</span>
+                </div>
+            </div>
+
+            <div class="total-row">
+                <span>Total:</span>
+                <span id="totalValue">₹0</span>
+            </div>
+
+            <button class="proceed-btn" onclick="handleProceed()">Proceed</button>
+        </div>
+    </div>
+
+    <script>
+        // Comprehensive location database
+        const locationData = {
+            "India": {
+                "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur", "Nellore", "Kurnool", "Rajahmundry", "Tirupati", "Kadapa", "Anantapur", "Vizianagaram"],
+                "Arunachal Pradesh": ["Itanagar", "Naharlagun", "Pasighat", "Tawang", "Ziro", "Bomdila", "Tezu", "Seppa"],
+                "Assam": ["Guwahati", "Silchar", "Dibrugarh", "Jorhat", "Nagaon", "Tinsukia", "Tezpur", "Bongaigaon", "Karimganj"],
+                "Bihar": ["Patna", "Gaya", "Bhagalpur", "Muzaffarpur", "Purnia", "Darbhanga", "Arrah", "Begusarai", "Katihar", "Munger"],
+                "Chhattisgarh": ["Raipur", "Bhilai", "Bilaspur", "Korba", "Durg", "Rajnandgaon", "Jagdalpur", "Raigarh", "Ambikapur"],
+                "Goa": ["Panaji", "Margao", "Vasco da Gama", "Mapusa", "Ponda", "Bicholim", "Curchorem"],
+                "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Jamnagar", "Junagadh", "Gandhinagar", "Anand", "Navsari"],
+                "Haryana": ["Faridabad", "Gurgaon", "Hisar", "Rohtak", "Panipat", "Karnal", "Sonipat", "Yamunanagar", "Panchkula", "Bhiwani"],
+                "Himachal Pradesh": ["Shimla", "Dharamshala", "Solan", "Mandi", "Palampur", "Baddi", "Nahan", "Una", "Hamirpur", "Kullu"],
+                "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Deoghar", "Phusro", "Hazaribagh", "Giridih", "Ramgarh"],
+                "Karnataka": ["Bangalore", "Mysore", "Hubli", "Mangalore", "Belgaum", "Gulbarga", "Davanagere", "Bellary", "Bijapur", "Shimoga"],
+                "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode", "Thrissur", "Kollam", "Palakkad", "Alappuzha", "Malappuram", "Kannur", "Kasaragod"],
+                "Madhya Pradesh": ["Indore", "Bhopal", "Jabalpur", "Gwalior", "Ujjain", "Sagar", "Dewas", "Satna", "Ratlam", "Rewa"],
+                "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Thane", "Nashik", "Aurangabad", "Solapur", "Kolhapur", "Amravati", "Navi Mumbai"],
+                "Manipur": ["Imphal", "Thoubal", "Bishnupur", "Churachandpur", "Kakching", "Ukhrul"],
+                "Meghalaya": ["Shillong", "Tura", "Nongstoin", "Jowai", "Baghmara", "Williamnagar"],
+                "Mizoram": ["Aizawl", "Lunglei", "Champhai", "Serchhip", "Kolasib", "Saiha"],
+                "Nagaland": ["Kohima", "Dimapur", "Mokokchung", "Tuensang", "Wokha", "Zunheboto"],
+                "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela", "Brahmapur", "Sambalpur", "Puri", "Balasore", "Bhadrak", "Baripada"],
+                "Punjab": ["Ludhiana", "Amritsar", "Jalandhar", "Patiala", "Bathinda", "Mohali", "Pathankot", "Hoshiarpur", "Moga", "Batala"],
+                "Rajasthan": ["Jaipur", "Jodhpur", "Kota", "Bikaner", "Udaipur", "Ajmer", "Bhilwara", "Alwar", "Bharatpur", "Sikar"],
+                "Sikkim": ["Gangtok", "Namchi", "Mangan", "Gyalshing", "Rangpo", "Jorethang"],
+                "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem", "Tirunelveli", "Tiruppur", "Vellore", "Erode", "Thoothukudi"],
+                "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Khammam", "Karimnagar", "Ramagundam", "Mahbubnagar", "Nalgonda", "Adilabad"],
+                "Tripura": ["Agartala", "Udaipur", "Dharmanagar", "Kailashahar", "Belonia", "Khowai"],
+                "Uttar Pradesh": ["Lucknow", "Kanpur", "Ghaziabad", "Agra", "Varanasi", "Meerut", "Prayagraj", "Bareilly", "Aligarh", "Moradabad"],
+                "Uttarakhand": ["Dehradun", "Haridwar", "Roorkee", "Haldwani", "Rudrapur", "Kashipur", "Rishikesh", "Nainital", "Pithoragarh"],
+                "West Bengal": ["Kolkata", "Howrah", "Durgapur", "Asansol", "Siliguri", "Bardhaman", "Malda", "Baharampur", "Habra", "Kharagpur"],
+                "Andaman and Nicobar Islands": ["Port Blair", "Diglipur", "Rangat", "Car Nicobar"]
+            }
+        };
+
+        // Sample pincode data (expand as needed)
+        const pincodeData = {
+            "110001": { country: "India", state: "Delhi", city: "New Delhi" },
+            "400001": { country: "India", state: "Maharashtra", city: "Mumbai" },
+            "560001": { country: "India", state: "Karnataka", city: "Bangalore" },
+            // Add more pincodes
+        };
+
+        const countrySelect = document.getElementById('country');
+        const stateSelect = document.getElementById('state');
+        const citySelect = document.getElementById('city');
+        const pincodeInput = document.getElementById('pincode');
+
+        // Render checkout items from localStorage
+        function renderCheckoutItems() {
+            const itemsContainer = document.getElementById('itemsContainer');
+            let checkoutItems = [];
+            try {
+                checkoutItems = JSON.parse(localStorage.getItem('checkoutItems')) || [];
+                if (!checkoutItems.length) {
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    checkoutItems = cart.filter(i => i.selected);
+                }
+            } catch (e) { checkoutItems = []; }
+
+            itemsContainer.innerHTML = '';
+            checkoutItems.forEach((item, idx) => {
+                const div = document.createElement('div');
+                div.className = 'item';
+                const icon = item.image ? `<img src="${item.image}" alt="${item.name}" style="width:40px;height:40px;border-radius:8px;object-fit:cover;"/>` : '📱';
+                div.innerHTML = `
+                    <span class="item-number">${idx + 1}.</span>
+                    <div class="item-image">${icon}</div>
+                    <span class="item-name">${item.name} × ${item.quantity || 1}</span>
+                `;
+                itemsContainer.appendChild(div);
+            });
+
+            computeTotals(checkoutItems);
+        }
+
+        // Compute dynamic totals
+        function computeTotals(items) {
+            const formatINR = (n) => `₹${Math.max(0, Math.round(n)).toLocaleString('en-IN')}`;
+            const subtotal = items.reduce((sum, it) => sum + (Number(it.priceNum || 0) * (Number(it.quantity || 1))), 0);
+            const delivery = items.length ? 1500 : 0;
+            const taxes = subtotal * 0.18; // 18% GST
+            const couponInput = document.getElementById('coupon');
+            const code = (couponInput?.value || '').trim().toUpperCase();
+            const savings = code === 'IP1000' ? 1000 : 0; // default 0 unless valid coupon
+            const total = subtotal + delivery + taxes - savings;
+
+            document.getElementById('subtotalValue').textContent = formatINR(subtotal);
+            document.getElementById('deliveryValue').textContent = formatINR(delivery);
+            document.getElementById('taxesValue').textContent = formatINR(taxes);
+            document.getElementById('savingsValue').textContent = formatINR(savings);
+            document.getElementById('totalValue').textContent = formatINR(total);
+        }
+
+        // Initial render of items
+        renderCheckoutItems();
+        // Recompute totals when coupon changes
+        const couponField = document.getElementById('coupon');
+        couponField && ['input','change','blur'].forEach(evt => couponField.addEventListener(evt, () => {
+            // Re-read items to ensure quantities/prices are current from storage if changed elsewhere
+            let items = [];
+            try {
+                items = JSON.parse(localStorage.getItem('checkoutItems')) || [];
+                if (!items.length) {
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    items = cart.filter(i => i.selected);
+                }
+            } catch (e) { items = []; }
+            computeTotals(items);
+        }));
+
+        // Populate countries
+        Object.keys(locationData).forEach(country => {
+            const option = document.createElement('option');
+            option.value = country;
+            option.textContent = country;
+            countrySelect.appendChild(option);
+        });
+
+        // Country change handler
+        countrySelect.addEventListener('change', function() {
+            const selectedCountry = this.value;
+            stateSelect.innerHTML = '<option value="">Select State</option>';
+            citySelect.innerHTML = '<option value="">Select City</option>';
+            citySelect.disabled = true;
+            
+            if (selectedCountry) {
+                stateSelect.disabled = false;
+                const states = Object.keys(locationData[selectedCountry]);
+                states.forEach(state => {
+                    const option = document.createElement('option');
+                    option.value = state;
+                    option.textContent = state;
+                    stateSelect.appendChild(option);
+                });
+            } else {
+                stateSelect.disabled = true;
+            }
+        });
+
+        // State change handler
+        stateSelect.addEventListener('change', function() {
+            const selectedCountry = countrySelect.value;
+            const selectedState = this.value;
+            citySelect.innerHTML = '<option value="">Select City</option>';
+            
+            if (selectedState) {
+                citySelect.disabled = false;
+                const cities = locationData[selectedCountry][selectedState];
+                cities.forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city;
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            } else {
+                citySelect.disabled = true;
+            }
+        });
+
+        // Pincode handler with debounce
+        let pincodeTimeout;
+        pincodeInput.addEventListener('input', function() {
+            clearTimeout(pincodeTimeout);
+            const pincode = this.value.trim();
+            
+            if (pincode.length === 6) {
+                pincodeTimeout = setTimeout(() => {
+                    if (pincodeData[pincode]) {
+                        const location = pincodeData[pincode];
+                        
+                        // Set country
+                        countrySelect.value = location.country;
+                        countrySelect.dispatchEvent(new Event('change'));
+                        
+                        // Wait for states to populate, then set state
+                        setTimeout(() => {
+                            stateSelect.value = location.state;
+                            stateSelect.dispatchEvent(new Event('change'));
+                            
+                            // Wait for cities to populate, then set city
+                            setTimeout(() => {
+                                citySelect.value = location.city;
+                            }, 100);
+                        }, 100);
+                    }
+                }, 500);
+            }
+        });
+
+        // Form submission handler
+        async function handleProceed() {
+            const form = document.getElementById('checkoutForm');
+            
+            if (form.checkValidity()) {
+                const formData = {
+                    houseNo: document.getElementById('houseNo').value,
+                    colony: document.getElementById('colony').value,
+                    street: document.getElementById('street').value,
+                    country: document.getElementById('country').value,
+                    state: document.getElementById('state').value,
+                    city: document.getElementById('city').value,
+                    pincode: document.getElementById('pincode').value,
+                    coupon: document.getElementById('coupon').value,
+                    items: JSON.parse(localStorage.getItem('checkoutItems') || '[]')
+                };
+                
+                try {
+                    const res = await fetch('https://your-backend.onrender.com/order', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+                    const result = await res.json();
+                    alert(result.message || 'Order placed successfully!');
+                    localStorage.removeItem('checkoutItems');
+                    localStorage.removeItem('cart');
+                    window.location.href = '/index.html';
+                } catch {
+                    alert('Failed to place order');
+                }
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        // Optional: Add more items dynamically (example)
+        function addItem(itemNumber, itemName, itemIcon) {
+            const itemsContainer = document.getElementById('itemsContainer');
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'item';
+            itemDiv.innerHTML = `
+                <span class="item-number">${itemNumber}.</span>
+                <div class="item-image">${itemIcon}</div>
+                <span class="item-name">${itemName}</span>
+            `;
+            itemsContainer.appendChild(itemDiv);
+        }
+
+        // Example: Uncomment to add more items
+        // addItem(2, 'AirPods Pro', '🎧');
+        // addItem(3, 'Apple Watch', '⌚');
+        // addItem(4, 'iPad Pro', '📱');
+    </script>
+</body>
+</html>

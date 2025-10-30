@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= product.product %>
+    </title>
+    <link rel="stylesheet" href="/output.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/ProductPage.css">
+    <!-- reuse ProductPage styles for visual parity -->
+</head>
+
+<body>
+    <!-- Homepage-style overlay menu (slides from right) -->
+    <div class="menu h-[100vh] fixed top-0 right-0 z-[9999] bg-gradient-to-b from-gray-700 to-black w-full hidden justify-around text-white transform translate-x-full transition-transform duration-300">
+        <div class="flex flex-col gap-6 justify-around h-[100%]">
+            <i class="close-icon ri-close-line cursor-pointer text-5xl"></i>
+            <div class="flex flex-col gap-4 mt-10 text-2xl">
+                <a class="text-[#D1CEB2]" href="/">Home</a>
+                <a href="/All_Products">All Products</a>
+                <a href="/Accessories">Accessories</a>
+                <a href="/Support">Support</a>
+                <a href="#">Gallery</a>
+            </div>
+            <h1 class="relative text-5xl bottom-5">Designed to be loved.</h1>
+        </div>
+        <div>
+            <img src="/picsss/abhijeet-barak-44qLAVHJsco-unsplash.jpg" class="w-[100%] h-full" alt="photo">
+        </div>
+    </div>
+    <!-- Use existing header .menu-btn as trigger (aligned with title) -->
+    <!-- Overlay backdrop -->
+    <div class="menu-overlay fixed inset-0 bg-black/50 z-[9998] hidden"></div>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <a href="/All_Accessories" class="back-btn">
+                <span class="arrow">←</span> Back to store
+            </a>
+            <h1 class="header-title">
+                <%= product.product %>
+            </h1>
+            <div class="CartandMenu">
+                <a href="/Cart"><i class="ri-shopping-cart-line"></i></a>
+                <button class="menu-btn">
+                    <span class="menu-icon">☰</span>
+                </button>
+            </div>
+
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-image">
+                <% if (product.image) { %>
+                    <img src="<%= product.image %>" alt="<%= product.product %>">
+                    <% } %>
+            </div>
+        </section>
+
+        <!-- Product Info Card -->
+        <section class="product-card">
+            <img src="<%= product.ProductImage || product.image %>" alt="">
+            <div class="product-info">
+                <h2 class="product-title">
+                    <%= product.product %>
+                </h2>
+                <p class="product-description">
+                    <%= product.description %>
+                </p>
+                <div class="product-purchase">
+                    <span class="product-price">
+                        <% if (product.price_starting) { %>
+                            <%= product.price_starting %>
+                                <% } else if (product.price_number) { %>
+                                    ₹<%= product.price_number.toLocaleString('en-IN') %>
+                                        <% } else { %>
+                                            Price on request
+                                            <% } %>
+                    </span>
+                    <div class="ProductCartandBuy">
+                        <button class="ATC-btn">Add to cart</button>
+                        <button class="buy-btn">BUY</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h2 class="section-title">Features:</h2>
+
+            <div class="features-grid">
+                <!-- Key Features -->
+                <% if (product.key_features) { %>
+                    <div class="feature-card feature-card-wide">
+                        <div class="feature-icon flex items-center">⭐<h3 class="feature-title">Key Features:</h3></div>
+                        <% if (Array.isArray(product.key_features)) { %>
+                            <ul class="feature-list">
+                                <% product.key_features.forEach(function(feature) { %>
+                                    <li><%= feature %></li>
+                                <% }); %>
+                            </ul>
+                        <% } else { %>
+                            <ul class="feature-list">
+                                <% Object.entries(product.key_features).forEach(function([k,v]) { %>
+                                    <% if (typeof v === 'object') { %>
+                                        <li><strong><%= k.replace(/_/g,' ') %>:</strong>
+                                            <pre class="text-sm"><%= JSON.stringify(v, null, 2) %></pre>
+                                        </li>
+                                    <% } else { %>
+                                        <li><strong><%= k.replace(/_/g,' ') %>:</strong> <%= v %></li>
+                                    <% } %>
+                                <% }) %>
+                            </ul>
+                        <% } %>
+                    </div>
+                <% } %>
+
+                <!-- Technical Specifications -->
+                <% if (product.technical_specifications) { %>
+                    <div class="feature-card">
+                        <div class="FeaturesTopic">
+                            <div class="feature-icon">🔧</div>
+                            <h3 class="feature-title">Technical Specifications:</h3>
+                        </div>
+                        <ul class="feature-list">
+                            <% Object.entries(product.technical_specifications).forEach(function([k,v]) { %>
+                                <li><span class="feature-subtitle"><%= k.replace(/_/g,' ') %>:</span> <%= Array.isArray(v) ? v.join(', ') : v %></li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                <% } %>
+
+                <!-- Design -->
+                <% if (product.design_and_connectivity || product.design_and_build) { %>
+                    <div class="feature-card">
+                        <div class="FeaturesTopic">
+                            <div class="feature-icon">🎨</div>
+                            <h3 class="feature-title">Design:</h3>
+                        </div>
+                        <% const design = product.design_and_connectivity || product.design_and_build; %>
+                        <ul class="feature-list">
+                            <% Object.entries(design).forEach(function([k,v]) { %>
+                                <li><span class="feature-subtitle"><%= k.replace(/_/g,' ') %>:</span> <%= Array.isArray(v) ? v.join(', ') : v %></li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                <% } %>
+
+                <!-- Charging & Connectivity -->
+                <% if (product.charging_and_connectivity) { %>
+                    <div class="feature-card">
+                        <div class="FeaturesTopic">
+                            <div class="feature-icon">🔌</div>
+                            <h3 class="feature-title">Charging & Connectivity:</h3>
+                        </div>
+                        <ul class="feature-list">
+                            <% Object.entries(product.charging_and_connectivity).forEach(function([k,v]) { %>
+                                <li><span class="feature-subtitle"><%= k.replace(/_/g,' ') %>:</span> <%= Array.isArray(v) ? v.join(', ') : v %></li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                <% } %>
+
+                <!-- Requirements -->
+                <% if (product.system_requirements_and_compatibility) { %>
+                    <div class="feature-card">
+                        <div class="FeaturesTopic">
+                            <div class="feature-icon">📋</div>
+                            <h3 class="feature-title">System Requirements:</h3>
+                        </div>
+                        <ul class="feature-list">
+                            <% Object.entries(product.system_requirements_and_compatibility).forEach(function([k,v]) { %>
+                                <li><span class="feature-subtitle"><%= k.replace(/_/g,' ') %>:</span> <%= Array.isArray(v) ? v.join(', ') : v %></li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                <% } %>
+
+                <!-- Compatibility -->
+                <% if (product.compatibility) { %>
+                    <div class="feature-card">
+                        <div class="FeaturesTopic">
+                            <div class="feature-icon">✅</div>
+                            <h3 class="feature-title">Compatibility:</h3>
+                        </div>
+                        <% if (Array.isArray(product.compatibility)) { %>
+                            <ul class="feature-list">
+                                <% product.compatibility.forEach(function(item){ %>
+                                    <li><%= item %></li>
+                                <% }) %>
+                            </ul>
+                        <% } else { %>
+                            <ul class="feature-list">
+                                <% Object.entries(product.compatibility).forEach(function([k,v]) { %>
+                                    <li><span class="feature-subtitle"><%= k.replace(/_/g,' ') %>:</span> <%= Array.isArray(v) ? v.join(', ') : v %></li>
+                                <% }) %>
+                            </ul>
+                        <% } %>
+                    </div>
+                <% } %>
+
+                <!-- Features (generic) -->
+                <% if (product.features) { %>
+                    <div class="feature-card feature-card-wide">
+                        <div class="feature-icon">✨</div>
+                        <h3 class="feature-title">More Features:</h3>
+                        <% if (Array.isArray(product.features)) { %>
+                            <ul class="feature-list">
+                                <% product.features.forEach(function(f){ %>
+                                    <li><%= f %></li>
+                                <% }) %>
+                            </ul>
+                        <% } else { %>
+                            <ul class="feature-list">
+                                <% Object.entries(product.features).forEach(function([k,v]) { %>
+                                    <li><span class="feature-subtitle"><%= k.replace(/_/g,' ') %>:</span> <%= Array.isArray(v) ? v.join(', ') : v %></li>
+                                <% }) %>
+                            </ul>
+                        <% } %>
+                    </div>
+                <% } %>
+            </div>
+        </section>
+    </div>
+    <script>
+        // Overlay menu toggle (slide from right), using header .menu-btn as trigger
+        (function () {
+            const menu = document.querySelector('.menu');
+            const overlay = document.querySelector('.menu-overlay');
+            const menuIcon = document.querySelector('.menu-btn');
+            const closeIcon = document.querySelector('.close-icon');
+            const open = () => { menu.classList.remove('hidden', 'translate-x-full', 'translate-x-[-100%]'); menu.classList.add('flex', 'translate-x-0'); overlay.classList.remove('hidden'); };
+            const close = () => { menu.classList.remove('translate-x-0'); menu.classList.add('translate-x-full'); overlay.classList.add('hidden'); };
+            menuIcon && menuIcon.addEventListener('click', open);
+            closeIcon && closeIcon.addEventListener('click', close);
+            overlay && overlay.addEventListener('click', close);
+        })();
+    </script>
+    <script>
+        // Add to Cart logic (same behavior as ProductPage)
+        (function () {
+            const atcBtn = document.querySelector('.ATC-btn');
+            const buyBtn = document.querySelector('.buy-btn');
+
+            function parsePriceToNumber(priceStr) {
+                if (!priceStr) return 0;
+                const digits = (priceStr.match(/\d+/g) || []).join('');
+                return digits ? parseInt(digits, 10) : 0;
+            }
+
+            function addCurrentProductToCart() {
+                const key = '<%= product.product %>';
+                const priceStr = '<%= product.price_starting || "" %>';
+                const priceNum = parsePriceToNumber(priceStr);
+                const image = '<%= product.ProductImage || product.image || "/placeholder.png" %>';
+
+                let cart = [];
+                try { cart = JSON.parse(localStorage.getItem('cart')) || []; } catch (e) { cart = []; }
+
+                const existing = cart.find(item => item.key === key);
+                if (existing) {
+                    existing.quantity += 1;
+                    existing.selected = true;
+                } else {
+                    cart.push({
+                        key,
+                        name: key,
+                        price: priceStr,
+                        priceNum: priceNum,
+                        image: image,
+                        quantity: 1,
+                        selected: true
+                    });
+                }
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+                return cart;
+            }
+
+            atcBtn && atcBtn.addEventListener('click', function () {
+                addCurrentProductToCart();
+            });
+
+            buyBtn && buyBtn.addEventListener('click', function () {
+                addCurrentProductToCart();
+                window.location.href = '/Cart';
+            });
+        })();
+    </script>
+</body>
+
+</html>
