@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "npx tailwindcss -i ./public/styles/styles.css -o ./public/stylesheets/output.css --minify",
+    "build:html": "node build-static.js",
+    "build": "npm run build:css && npm run build:html",
+    "deploy": "gh-pages -d public"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "tailwindcss": "^3.4.0"
+  },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.13",
     "bcryptjs": "^3.0.2",
@@ -20,5 +24,9 @@
     "mongoose": "^8.19.1",
     "nodemon": "^3.1.10",
     "tailwindcss": "^4.1.13"
-  }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
