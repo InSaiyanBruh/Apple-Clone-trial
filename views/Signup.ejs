@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- font link -->
+    <link href="https://fonts.cdnfonts.com/css/minimo" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/output.css">
+    <style>
+        /* Full screen overlay */
+        #loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: white;
+            /* You can also use rgba(255,255,255,0.8) */
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader {
+            display: inline-grid;
+            padding: 5px;
+            background: #fff;
+            filter: blur(4px) contrast(12);
+        }
+
+        .loader:before {
+            content: "";
+            height: 40px;
+            aspect-ratio: 3;
+            --c: #0000 64%, #000 66% 98%, #0000 101%;
+            background:
+                radial-gradient(35% 146% at 50% 159%, var(--c)) 0 0,
+                radial-gradient(35% 146% at 50% -59%, var(--c)) 100% 100%;
+            background-size: calc(200%/3) 50%;
+            background-repeat: repeat-x;
+            -webkit-mask: repeating-linear-gradient(90deg, #000 0 10%, #0000 0 20%);
+            animation: l12 .8s infinite linear;
+        }
+
+        @keyframes l12 {
+            to {
+                background-position: -200% 0, -100% 100%
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loader-overlay">
+        <div class="loader"></div>
+    </div>
+    <div class="bg-white flex w-full h-screen">
+        <div class="LeftImg w-1/2 h-screen overflow-hidden">
+            <img src="../picsss/pascal-brandle-_c68iz7nRk0-unsplash.jpg" alt="" class="w-full h-screen object-cover">
+        </div>
+        <div class="Right w-1/2 pl-10 flex flex-col justify-center items-center">
+            <h1 class="text-5xl font-bold">Create Your Account</h1>
+            <div class="AlreadyLoggedIn flex gap-2">
+                <p class="font-medium text-lg">Already have an account?</p>
+                <a class="font-bold text-lg hover:underline" href="http://localhost:3000/Login">Login</a>
+            </div>
+            <form action="/signup" method="POST">
+            <div class="flex flex-col gap-6 mt-8">
+                <input name="username" class="p-2 w-[20rem] shadow-black shadow-[0px_5px_5px_0px] bg-gray-300 rounded-[5px]" type="text"
+                    placeholder="Username">
+                <input name="email" class="p-2 w-[20rem] shadow-black shadow-[0px_5px_5px_0px] bg-gray-300 rounded-[5px]" type="email"
+                    placeholder="E-mail">
+                <input name="password" class="p-2 w-[20rem] shadow-black shadow-[0px_5px_5px_0px] bg-gray-300 rounded-[5px]" type="password"
+                    placeholder="Password">
+                <input name="confirmPassword" class="p-2 w-[20rem] shadow-black shadow-[0px_5px_5px_0px] bg-gray-300 rounded-[5px]" type="password"
+                    placeholder="Confirm Password">
+            </div>
+            <div class="mt-8 flex gap-2">
+                <input class="cursor-pointer" type="checkbox" name="Agree on Conditions" id="">
+                <label class=" font-medium text-lg cursor-pointer hover:underline" for="term">I agree to the Terms and
+                    Conditions</label>
+            </div>
+            <button type="submit" class="font-bold text-2xl bg-white border-2 border-gray-400 shadow-black shadow-[0px_5px_5px_0px] p-2 text-center w-[20rem] cursor-pointer rounded-[8px] mt-10">Sign
+                up</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function () {
+            const loaderOverlay = document.getElementById('loader-overlay');
+            loaderOverlay.style.transition = 'opacity 0.5s ease';
+            loaderOverlay.style.opacity = '0';
+            setTimeout(() => loaderOverlay.style.display = 'none', 500);
+        });
+    </script>
+</body>
+
+</html>

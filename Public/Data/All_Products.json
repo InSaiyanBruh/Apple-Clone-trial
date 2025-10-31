@@ -1,0 +1,423 @@
+{
+  "iPhone 16 Pro Max": {
+    "description": "The top model from the previous year, still powerful and capable in 2025.",
+    "price": "₹1,34,900",
+    "display": {
+      "size": "6.9-inch",
+      "type": "Super Retina XDR",
+      "features": [
+        "ProMotion technology",
+        "120Hz refresh rate"
+      ]
+    },
+    "chip": {
+      "model": "A18 Pro"
+    },
+    "ram": "8GB",
+    "storage_options": [
+      "256GB",
+      "512GB",
+      "1TB"
+    ],
+    "camera": {
+      "rear": {
+        "setup": "48MP Main + 48MP Ultra Wide + 12MP 5x Telephoto",
+        "digital_zoom": "Up to 25x"
+      },
+      "front": {
+        "resolution": "12MP",
+        "feature": "TrueDepth"
+      }
+    },
+    "battery": {
+      "capacity": "4,685 mAh (approx.)",
+      "features": "Excellent battery life"
+    },
+    "connectivity": {
+      "wifi": "Wi-Fi 7",
+      "bluetooth": "Bluetooth 5.3",
+      "network": "5G"
+    },
+    "build": {
+      "frame": "Grade 5 titanium"
+    },
+    "operating_system": {
+      "name": "iOS 18",
+      "features": [
+        "Upgradeable to iOS 26"
+      ]
+    }
+  },
+  "iPhone 16 Pro": {
+    "description": "Designed for professionals and enthusiasts who need top-tier performance, an advanced camera system, and a premium build in a manageable size.",
+    "price": "₹1,29,900",
+    "display": {
+      "size": "6.3-inch",
+      "type": "Super Retina XDR",
+      "features": [
+        "ProMotion technology",
+        "Thinner bezels"
+      ]
+    },
+    "chip": {
+      "model": "A18 Pro"
+    },
+    "ram": "8GB",
+    "storage_options": [
+      "256GB",
+      "512GB",
+      "1TB",
+      "2TB"
+    ],
+    "camera": {
+      "rear": {
+        "setup": "Pro camera system",
+        "lenses": ["48MP Main", "48MP Ultra Wide", "12MP Telephoto (5x optical zoom)"],
+        "optical_zoom": "5x"
+      },
+      "front": {
+        "resolution": "12MP",
+        "feature": "TrueDepth"
+      }
+    },
+    "battery": {
+      "capacity": "3,582 mAh",
+      "features": "All-day battery life, capable of handling professional workflows"
+    },
+    "connectivity": {
+      "wifi": "Wi-Fi 7",
+      "bluetooth": "Bluetooth 5.3",
+      "network": "5G"
+    },
+    "build": {
+      "frame": "Polished Grade 5 titanium"
+    },
+    "operating_system": {
+      "name": "iOS",
+      "features": [
+        "Capture Button",
+        "Enhanced on-device AI capabilities powered by A18 Pro chip",
+        "Improved thermal design for sustained performance"
+      ]
+    }
+  },
+  "iPhone 17 Pro Max": {
+    "description": "The ultimate flagship iPhone, combining the largest and most advanced display with the most powerful performance and camera system, built for professionals, creators, and enthusiasts.",
+    "ProductThumbnail": "/picsss/Products/Product Thumbnail Images/iPhone 17 front and back.png",
+    "image": "../picsss/Products/hero__bdntboqignj6_medium.jpg",
+    "ProductImage": "../picsss/Products/iPhone 17 front and back.png",
+    "price": "₹1,74,900",
+    "display": {
+      "size": "6.9-inch",
+      "type": "Super Retina XDR",
+      "features": [
+        "ProMotion technology",
+        "3,000 nits peak outdoor brightness",
+        "Most durable Ceramic Shield glass yet"
+      ]
+    },
+    "chip": {
+      "model": "A19 Pro",
+      "cooling_system": "Vapor chamber for sustained peak performance"
+    },
+    "ram": "12GB",
+    "storage_options": [
+      "256GB",
+      "512GB",
+      "1TB"
+    ],
+    "camera": {
+      "rear": {
+        "setup": "Pro camera system",
+        "lenses": ["48MP Main", "48MP Ultra Wide", "48MP Periscope Telephoto"],
+        "optical_zoom": "Up to 10x"
+      },
+      "front": {
+        "resolution": "18MP",
+        "feature": "TrueDepth, Center Stage"
+      }
+    },
+    "battery": {
+      "features": "All-day battery life, engineered for professional workflows and heavy usage"
+    },
+    "connectivity": {
+      "wifi": "Wi-Fi 7",
+      "bluetooth": "Bluetooth 6.0",
+      "network": "5G"
+    },
+    "build": {
+      "design": "Solid aluminum unibody, more durable than previous models"
+    },
+    "operating_system": {
+      "name": "iOS 26",
+      "features": [
+        "Exclusive on-device AI features powered by A19 Pro chip",
+        "Most advanced camera system in an iPhone",
+        "Superior thermal management",
+        "Largest and brightest display for an unparalleled experience"
+      ]
+    }
+  },
+  "MacBook Air": {
+    "description": "The MacBook Air is the ideal laptop for those who prioritize portability without compromising on power. It's perfect for students, professionals on the move, and everyday users who value performance and a lightweight design.",
+    "price": "₹99,900",
+    "display": {
+      "sizes": ["13.6-inch", "15.3-inch"],
+      "type": "Liquid Retina",
+      "features": [
+        "True Tone technology",
+        "P3 wide color gamut",
+        "500 nits brightness"
+      ]
+    },
+    "chip": {
+      "model": "Apple M4",
+      "cpu": "8-core (4 performance cores, 4 efficiency cores)",
+      "gpu": "Up to 10-core",
+      "neural_engine": "16-core Neural Engine for advanced machine learning"
+    },
+    "ram": "8GB (configurable to 16GB or 24GB)",
+    "storage_options": [
+      "256GB",
+      "512GB",
+      "1TB",
+      "2TB"
+    ],
+    "camera": {
+      "resolution": "1080p FaceTime HD",
+      "features": "Advanced image signal processor for sharp video calls"
+    },
+    "audio": {
+      "mics": "Three-mic array",
+      "speakers": [
+        "Four-speaker sound system with Spatial Audio support (13-inch)",
+        "Six-speaker sound system with force-cancelling woofers for immersive audio (15-inch)"
+      ]
+    },
+    "battery": {
+      "video_playback": "Up to 18 hours",
+      "wireless_web": "Up to 15 hours"
+    },
+    "connectivity": {
+      "wifi": "Wi-Fi 6E",
+      "bluetooth": "Bluetooth 5.3"
+    },
+    "build": {
+      "finishes": ["Silver", "Starlight", "Space Grey", "Midnight"]
+    },
+    "operating_system": {
+      "name": "macOS"
+    }
+  },
+  "MacBook Pro": {
+    "description": "The MacBook Pro is the ultimate choice for professionals in creative fields, software development, and scientific research who demand maximum performance and the most advanced features in a portable design.",
+    "price": "₹1,69,900",
+    "display": {
+      "sizes": ["14.2-inch", "16.2-inch"],
+      "type": "Liquid Retina XDR",
+      "features": [
+        "ProMotion technology with adaptive refresh rates up to 120Hz",
+        "1000 nits sustained brightness (1600 nits peak for HDR)",
+        "1,000,000:1 contrast ratio for stunning dynamic range"
+      ]
+    },
+    "chip": {
+      "options": [
+        {
+          "model": "Apple M4 Pro",
+          "cpu": "Up to 12-core",
+          "gpu": "Up to 18-core",
+          "neural_engine": "16-core Neural Engine"
+        },
+        {
+          "model": "Apple M4 Max",
+          "cpu": "Up to 16-core",
+          "gpu": "Up to 40-core",
+          "neural_engine": "16-core Neural Engine"
+        }
+      ]
+    },
+    "ram": "Up to 32GB (M4 Pro) or 128GB (M4 Max)",
+    "storage_options": [
+      "512GB",
+      "1TB",
+      "2TB",
+      "4TB",
+      "8TB"
+    ],
+    "camera": {
+      "resolution": "1080p FaceTime HD",
+      "features": "Advanced image signal processor"
+    },
+    "audio": {
+      "mics": "Studio-quality three-mic array with high signal-to-noise ratio and directional beamforming",
+      "speakers": "High-fidelity six-speaker system with force-cancelling woofers and Spatial Audio support"
+    },
+    "battery": {
+      "video_playback": [
+        "Up to 18 hours (14-inch)",
+        "Up to 22 hours (16-inch)"
+      ]
+    },
+    "connectivity": {
+      "wifi": "Wi-Fi 6E",
+      "bluetooth": "Bluetooth 5.3"
+    },
+    "build": {
+      "finishes": ["Silver", "Space Black"]
+    },
+    "operating_system": {
+      "name": "macOS"
+    }
+  },
+  "iPhone 17": {
+    "description": "The standard iPhone 17 offers powerful performance and new features, making it an excellent upgrade for the average user.",
+    "price": "₹89,900",
+    "display": {
+      "size": "6.3-inch",
+      "type": "Super Retina XDR",
+      "features": [
+        "ProMotion technology (120Hz refresh rate)",
+        "Always-On display"
+      ]
+    },
+    "chip": {
+      "model": "A19 Bionic",
+      "process": "3nm"
+    },
+    "ram": "8GB",
+    "storage_options": [
+      "256GB",
+      "512GB"
+    ],
+    "camera": {
+      "rear": {
+        "setup": "48MP Main + 48MP Ultra Wide",
+        "optical_zoom": "2x optical quality zoom"
+      },
+      "front": {
+        "resolution": "18MP",
+        "feature": "Centre Stage"
+      }
+    },
+    "battery": {
+      "capacity": "3692 mAh (approx.)",
+      "charging": "40W fast charging support"
+    },
+    "connectivity": {
+      "wifi": "Wi-Fi 7",
+      "bluetooth": "Bluetooth 6.0",
+      "network": "5G"
+    },
+    "build": {
+      "frame": "Aerospace-grade aluminum",
+      "glass": "Ceramic Shield 2"
+    },
+    "operating_system": {
+      "name": "iOS 26",
+      "features": [
+        "Apple Intelligence"
+      ]
+    }
+  },
+  "iPhone16": {
+    "description": "The iPhone 16 offers a balance of performance and affordability with an advanced dual-camera system and vibrant display.",
+    "price": "₹69,900",
+    "display": {
+      "size": "6.1-inch",
+      "type": "Super Retina XDR"
+    },
+    "chip": {
+      "model": "A18"
+    },
+    "ram": "8GB",
+    "storage_options": [
+      "128GB",
+      "256GB",
+      "512GB"
+    ],
+    "camera": {
+      "rear": {
+        "setup": "Advanced dual-camera system",
+        "main_camera": "48MP Main camera",
+        "ultra_wide_camera": "12MP Ultra Wide camera",
+        "optical_zoom": "4x optical zoom range",
+        "digital_zoom": "Up to 10x"
+      },
+      "front": {
+        "resolution": "12MP"
+      }
+    },
+    "battery": {
+      "type": "Built-in rechargeable lithium-ion battery",
+      "fast_charge": "Up to 50% charge in around 30 minutes"
+    },
+    "connectivity": {
+      "wifi": "Wi-Fi 7",
+      "bluetooth": "Bluetooth 5.3",
+      "network": "5G"
+    },
+    "build": {
+      "colors": [
+        "Black",
+        "Pink",
+        "Teal",
+        "Ultramarine",
+        "White"
+      ]
+    },
+    "operating_system": {
+      "name": "iOS"
+    }
+  },
+  "iPhone16Plus": {
+    "description": "The iPhone 16 Plus combines a larger display with the same powerful performance and camera system as the iPhone 16.",
+    "price": "₹79,900",
+    "display": {
+      "size": "6.7-inch",
+      "type": "Super Retina XDR"
+    },
+    "chip": {
+      "model": "A18"
+    },
+    "ram": "8GB",
+    "storage_options": [
+      "128GB",
+      "256GB",
+      "512GB"
+    ],
+    "camera": {
+      "rear": {
+        "setup": "Advanced dual-camera system",
+        "main_camera": "48MP Main camera",
+        "ultra_wide_camera": "12MP Ultra Wide camera",
+        "optical_zoom": "4x optical zoom range",
+        "digital_zoom": "Up to 10x"
+      },
+      "front": {
+        "resolution": "12MP"
+      }
+    },
+    "battery": {
+      "type": "Built-in rechargeable lithium-ion battery",
+      "fast_charge": "Up to 50% charge in around 30 minutes"
+    },
+    "connectivity": {
+      "wifi": "Wi-Fi 7",
+      "bluetooth": "Bluetooth 5.3",
+      "network": "5G"
+    },
+    "build": {
+      "colors": [
+        "Black",
+        "Pink",
+        "Teal",
+        "Ultramarine",
+        "White"
+      ]
+    },
+    "operating_system": {
+      "name": "iOS"
+    }
+  }
+}

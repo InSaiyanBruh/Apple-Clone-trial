@@ -1,0 +1,166 @@
+@import url('https://fonts.cdnfonts.com/css/dm-serif-display');
+@import url('https://fonts.cdnfonts.com/css/br-sonoma');
+
+html,
+body {
+  height: 100%;
+}
+
+.desktop {
+  background-color: black;
+  /* height: 100vh; */
+}
+
+.desktop-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* height: 100vh; */
+  color: white;
+}
+
+.desktop-heading h1 {
+  font-size: 2rem;
+  font-family: 'DM Serif Display', serif;
+}
+
+.desktop-heading p {
+  font-family: 'BR Sonoma', sans-serif;
+  font-size: 1.5rem;
+  color: #8F8F8F;
+  margin-top: 10px;
+}
+
+.desktop-div {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  /* vertical center */
+  justify-content: center;
+  /* horizontal center */
+}
+
+.product-gallery {
+  position: relative;
+  width: 100%;
+  /* full width */
+  max-width: 1800px;
+  /* optional: keeps it from being too wide on big screens */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phones {
+  position: relative;
+  width: 200px;
+  /* Same as phone width */
+  height: 400px;
+  /* Adjust based on your phone image height */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone {
+  position: absolute;
+  width: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.phone.active {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.2) translateY(-30px);
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.phone.prev,
+.phone.next {
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.phone.prev {
+  transform: translateX(calc(-50% - 140px)) scale(0.9);
+}
+
+.phone.next {
+  transform: translateX(calc(-50% + 140px)) scale(0.9);
+}
+
+/* Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: black;
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.arrow.left {
+  left: 0;
+  /* stick to left edge */
+}
+
+.arrow.right {
+  right: 0;
+  /* stick to right edge */
+}
+
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  transform: translateY(-50%) scale(1.2);
+}
+
+.desktop-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: white;
+  margin-bottom: 200px;
+}
+
+.footer-one {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-one h1 {
+  font-size: 2rem;
+  font-family: 'DM Serif Display', serif;
+}
+
+.footer-one p {
+  font-family: 'BR Sonoma', sans-serif;
+  font-size: 1.5rem;
+  color: #8F8F8F;
+  margin-top: 10px;
+}
+.footer-two{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+.footer-two button{
+  font-size: 1.5rem;
+}

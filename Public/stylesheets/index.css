@@ -1,0 +1,612 @@
+@import url('https://fonts.cdnfonts.com/css/dm-serif-display');
+@import url('https://fonts.cdnfonts.com/css/br-sonoma');
+
+/* SF Pro Font Family */
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('/Fonts/SF-Pro-Display-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('/Fonts/SF-Pro-Display-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('/Fonts/SF-Pro-Display-Semibold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('/Fonts/SF-Pro-Display-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+.Navbar img{
+    width: 50px;
+}
+
+.nav-btn,
+.nav-head {
+    font-family: 'BR Sonoma', sans-serif;
+}
+
+.top-div h1 {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.top-div p {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+#feature {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+:root {
+    --swiper-navigation-color: #ffffff;
+}
+
+.swiper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 300px;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.ModalContainer{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: #ffffff;
+    padding: 20px;
+    padding-top: 1rem; /* give room for absolute h1 and close button */
+    border-radius: 15px;
+    width: 80%;
+    height: 90%;
+    top: 0px;
+    position: relative;
+}
+
+.ModalHeader{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    top: 0px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    padding-top: 1rem; /* give room for absolute h1 and close button */
+    border-radius: 15px;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    gap: 12px;
+}
+
+.Modalimgcontainer{
+    width: 60rem;
+    height: 60rem;
+    border-radius: 15px;
+    overflow: hidden;
+    flex-shrink: 0;
+    max-width: 100%;
+    width: min(60rem, 100%);
+    height: min(60rem, 50vh);
+    margin-top: 14px;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.Modalimgcontainer img{
+    object-position: center 48%;
+}
+
+.ModalHeader h1 {
+    font-weight: bold;
+    font-size:x-large;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.modal-content h2 {
+    margin-top: 10px;
+    font-size: large;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.modal-content p {
+    font-size: medium;
+    width: 90%;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.MoreInfoButton{
+    font-size: large;
+    cursor: pointer;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.MoreInfoButton:hover{
+    color: black;
+    font-weight:600;
+}
+
+.MoreInfo{
+    display: none;
+}
+
+.close-btn {
+    font-size: 40px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Loader Styles */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #000000, #1f2937, #374151);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: opacity 0.5s ease-out;
+}
+
+.loader-container.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader-logo {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 2rem;
+    font-family: 'BR Sonoma', sans-serif;
+    letter-spacing: -2px;
+}
+
+.loader-spinner {
+    width: 60px;
+    height: 60px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+.loader-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    font-family: 'BR Sonoma', sans-serif;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Intro Text Styles */
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease-out;
+    opacity: 1;
+    pointer-events: none;
+    will-change: opacity;
+}
+
+.intro-title {
+    position: relative;
+    top: 0;
+    opacity: 0;
+    font-size: 4.5rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-family: 'DM Serif Display', serif;
+    letter-spacing: -3px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+.intro-subtitle {
+    position: relative;
+    top: 0;
+    opacity: 0;
+    color: #ffffff;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: 'BR Sonoma', sans-serif;
+    max-width: 600px;
+    line-height: 1.6;
+    animation: fadeInUp 1s ease-out 0.8s forwards;
+}
+
+/* Slightly larger on wider screens */
+@media (min-width: 1024px) {
+    .intro-title { font-size: 5rem; }
+    .intro-subtitle { font-size: 1.35rem; }
+}
+
+.scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: bounce 2s infinite;
+}
+
+.scroll-text {
+    color: white;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-family: 'BR Sonoma', sans-serif;
+}
+
+.scroll-arrow {
+    color: white;
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Account Dropdown Styles */
+.account-container {
+    display: flex;
+    gap: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.account-container i {
+    font-size: 2rem;
+    color: white;
+    transition: transform 0.2s ease;
+}
+
+.account-container i:hover {
+    transform: scale(1.05);
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 180px;
+    margin-top: 0.5rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.dropdown.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: 'BR Sonoma', sans-serif;
+    transition: background 0.2s ease;
+    color: #1f2937;
+}
+
+.dropdown button:first-child {
+    border-radius: 8px 8px 0 0;
+    font-weight: 600;
+    color: #111827;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.dropdown button:last-child {
+    border-radius: 0 0 8px 8px;
+}
+
+.dropdown button:hover {
+    background: #f3f4f6;
+}
+
+.dropdown button a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+
+/* User avatar in navbar */
+.user-avatar{
+    display: inline-block;
+    scale: calc(0.8);
+    width: 20px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: contain;
+    border: 1px solid rgba(255,255,255,0.3);
+    vertical-align: middle;
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.CoolSliderPage {
+    background-color: black;
+    overflow: hidden;
+    height: 100vh; /* full-screen section */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* anchor absolute arrows */
+}
+
+.ri-arrow-left-circle-line{
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 2.5rem;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.ri-arrow-left-circle-line:hover{
+    color: #CDCCAB;
+}
+
+.ri-arrow-right-circle-line:hover{
+    color: #CDCCAB;
+}
+
+.ri-arrow-right-circle-line{
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 2.5rem;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.SliderCircle{
+    --ring-rot: 0deg; /* used by children to counter-rotate */
+    position: absolute;
+    left: 55%;
+    top: calc(55% + 30rem);
+    scale: calc(1.13);
+    width: 60rem;
+    height: 60rem;
+    transform-origin: center center;
+    transform: translate(-50%, -50%) scale(1.15);
+    transition: transform 0.5s ease-in-out; /* only translate animates on first paint */
+    will-change: transform;
+}
+
+.circle-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center; 
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(var(--ring-rot));
+  transition: transform 0.5s ease-in-out;
+}
+
+.circle-container img {
+position: absolute;
+width: 12rem; 
+height: 12rem;
+transform-origin: center center; 
+transition: transform 0.5s ease-in-out;
+will-change: transform;
+}
+
+/* evenly space 8 images around circle */
+.circle-container img:nth-child(1) { transform: rotate(0deg) translateX(30rem) rotate(0deg) rotate(calc(-1 * var(--ring-rot))); }
+.circle-container img:nth-child(2) { transform: rotate(45deg) translateX(30rem) rotate(-45deg) rotate(calc(-1 * var(--ring-rot))); }
+.circle-container img:nth-child(3) { transform: rotate(90deg) translateX(30rem) rotate(-90deg) rotate(calc(-1 * var(--ring-rot))); }
+.circle-container img:nth-child(4) { transform: rotate(135deg) translateX(30rem) rotate(-135deg) rotate(calc(-1 * var(--ring-rot))); }
+.circle-container img:nth-child(5) { transform: rotate(180deg) translateX(30rem) rotate(-180deg) rotate(calc(-1 * var(--ring-rot))); }
+.circle-container img:nth-child(6) { transform: rotate(225deg) translateX(30rem) rotate(-225deg) rotate(calc(-1 * var(--ring-rot))); }
+.circle-container img:nth-child(7) { transform: rotate(270deg) translateX(30rem) rotate(-270deg) rotate(calc(-1 * var(--ring-rot))); }
+.circle-container img:nth-child(8) { transform: rotate(315deg) translateX(30rem) rotate(-315deg) rotate(calc(-1 * var(--ring-rot))); }
+
+/* Bottom-center info panel for circular slider */
+.SliderInfo{
+    position: absolute;
+    bottom: 6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 11;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-info-content{
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 1rem 1.25rem;
+    min-width: 280px;
+}
+
+.slider-info-content h2{
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.slider-info-content p{
+    margin-top: 0.25rem;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+.learn-more-btn{
+    display: inline-block;
+    margin-top: 0.6rem;
+    padding: 0.5rem 0.9rem;
+    background: #ffffff;
+    color: #000000;
+    border-radius: 8px;
+    font-weight: 600;
+    font-family: 'BR Sonoma', sans-serif;
+}
+
+.learn-more-btn:hover{
+    background: #CDCCAB;
+}

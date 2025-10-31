@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= product.product %>
+    </title>
+    <link rel="stylesheet" href="/output.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/ProductPage.css">
+</head>
+
+<body>
+    <!-- Homepage-style overlay menu (slides from right) -->
+    <div
+        class="menu h-[100vh] fixed top-0 right-0 z-[9999] bg-gradient-to-b from-gray-700 to-black w-full hidden justify-around text-white transform translate-x-full transition-transform duration-300">
+        <div class="flex flex-col gap-6 justify-around h-[100%]">
+            <i class="close-icon ri-close-line cursor-pointer text-5xl"></i>
+            <div class="flex flex-col gap-4 mt-10 text-2xl">
+                <a class="text-[#D1CEB2]" href="/">Home</a>
+                <a href="/All_Products">All Products</a>
+                <a href="/Accessories">Accessories</a>
+                <a href="/Support">Support</a>
+                <a href="#">Gallery</a>
+            </div>
+            <h1 class="relative text-5xl bottom-5">Designed to be loved.</h1>
+        </div>
+        <div>
+            <img src="/picsss/abhijeet-barak-44qLAVHJsco-unsplash.jpg" class="w-[100%] h-full" alt="photo">
+        </div>
+    </div>
+    <!-- Use existing header .menu-btn as trigger (aligned with title) -->
+    <!-- Overlay backdrop -->
+    <div class="menu-overlay fixed inset-0 bg-black/50 z-[9998] hidden"></div>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <a href="/All_Products" class="back-btn">
+                <span class="arrow">←</span> Back to store
+            </a>
+            <h1 class="header-title">
+                <%= product.product %>
+            </h1>
+            <div class="CartandMenu">
+                <a href="/Cart"><i class="ri-shopping-cart-line"></i></a>
+                <button class="menu-btn">
+                    <span class="menu-icon">☰</span>
+                </button>
+            </div>
+
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-image">
+                <% if (product.image) { %>
+                    <img src="<%= product.image %>" alt="<%= product.product %>">
+                    <% } %>
+            </div>
+        </section>
+
+        <!-- Product Info Card -->
+        <section class="product-card">
+            <img src="<%= product.ProductImage %>" alt="">
+            <div class="product-info">
+                <h2 class="product-title">
+                    <%= product.product %>
+                </h2>
+                <p class="product-description">
+                    <%= product.description %>
+                </p>
+                <div class="product-purchase">
+                    <span class="product-price">
+                        <% if (product.price_starting) { %>
+                            <%= product.price_starting %>
+                                <% } else if (product.price_2025) { %>
+                                    <%= product.price_2025 %>
+                                        <% } else { %>
+                                            Price on request
+                                            <% } %>
+                    </span>
+                    <div class="ProductCartandBuy">
+                        <button class="ATC-btn">Add to cart</button>
+                        <button class="buy-btn">BUY</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h2 class="section-title">Features:</h2>
+
+            <div class="features-grid">
+                <!-- Processor -->
+                <% if (product.chip) { %>
+                    <div class="feature-card">
+                        <div class="FeaturesTopic">
+                            <div class="feature-icon">🖥️</div>
+                            <h3 class="feature-title">Processor:</h3>
+                        </div>
+                        <p class="feature-Processorname">
+                            <%= product.chip.model %>
+                        </p>
+                        <% if (product.chip.cooling_system) { %>
+                            <p class="feature-desc">
+                                <%= product.chip.cooling_system %>
+                            </p>
+                            <% } %>
+                    </div>
+                    <% } %>
+
+                        <!-- RAM -->
+                        <% if (product.ram) { %>
+                            <div class="feature-card">
+                                <div class="FeaturesTopic">
+                                    <div class="feature-icon">💾</div>
+                                    <h3 class="feature-title">RAM:</h3>
+                                </div>
+                                <p class="feature-value">
+                                    <%= product.ram %>
+                                </p>
+                            </div>
+                            <% } %>
+
+                                <!-- Storage -->
+                                <% if (product.storage_options && product.storage_options.length> 0) { %>
+                                    <div class="feature-card">
+                                        <div class="FeaturesTopic">
+                                            <div class="feature-icon">💿</div>
+                                            <h3 class="feature-title">Storage:</h3>
+                                        </div>
+                                        <p class="feature-subtitle">Available in:</p>
+                                        <ul class="feature-list">
+                                            <% product.storage_options.forEach(function(storage) { %>
+                                                <li>
+                                                    <%= storage %>
+                                                </li>
+                                                <% }); %>
+                                        </ul>
+                                    </div>
+                                    <% } %>
+
+                                        <!-- Battery -->
+                                        <% if (product.battery) { %>
+                                            <div class="feature-card">
+                                                <div class="FeaturesTopic">
+                                                    <div class="feature-icon">🔋</div>
+                                                    <h3 class="feature-title">Battery:</h3>
+                                                </div>
+                                                <% if (product.battery.features) { %>
+                                                    <p class="feature-subtitle">
+                                                        <%= product.battery.features %>
+                                                    </p>
+                                                    <% } %>
+                                                        <% if (product.battery.capacity) { %>
+                                                            <p class="feature-value">
+                                                                <%= product.battery.capacity %>
+                                                            </p>
+                                                            <% } %>
+                                            </div>
+                                            <% } %>
+
+                                                <!-- Camera -->
+                                                <% if (product.camera) { %>
+                                                    <div class="feature-card feature-card-wide">
+                                                        <div class="FeaturesTopic">
+                                                            <div class="feature-icon">📷</div>
+                                                            <h3 class="feature-title">Camera:</h3>
+                                                        </div>
+                                                        <div class="camera-grid">
+                                                            <% if (product.camera.rear) { %>
+                                                                <div class="camera-section">
+                                                                    <h4 class="camera-label">Rare:</h4>
+
+                                                                    <% if (product.camera.rear.setup) { %>
+                                                                        <p class="camera-subtitle">Main, Ultra Wide and
+                                                                            Telephoto:</p>
+                                                                        <p class="camera-spec">
+                                                                            <%= product.camera.rear.setup %>
+                                                                        </p>
+                                                                        <% } %>
+
+                                                                            <% if (product.camera.rear.lenses &&
+                                                                                product.camera.rear.lenses.length> 0) {
+                                                                                %>
+                                                                                <% product.camera.rear.lenses.forEach(function(lens)
+                                                                                    { %>
+                                                                                    <p class="camera-spec">
+                                                                                        <%= lens %>
+                                                                                    </p>
+                                                                                    <% }); %>
+                                                                                        <% } %>
+
+                                                                                            <% if
+                                                                                                (product.camera.rear.optical_zoom)
+                                                                                                { %>
+                                                                                                <p
+                                                                                                    class="camera-subtitle">
+                                                                                                    Zoom:</p>
+                                                                                                <p class="camera-spec">
+                                                                                                    <%= product.camera.rear.optical_zoom
+                                                                                                        %>
+                                                                                                </p>
+                                                                                                <% } %>
+
+                                                                                                    <% if
+                                                                                                        (product.camera.rear.optical_quality_zoom)
+                                                                                                        { %>
+                                                                                                        <p
+                                                                                                            class="camera-spec">
+                                                                                                            <%= product.camera.rear.optical_quality_zoom
+                                                                                                                %>
+                                                                                                        </p>
+                                                                                                        <% } %>
+
+                                                                                                            <% if
+                                                                                                                (product.camera.rear.digital_zoom)
+                                                                                                                { %>
+                                                                                                                <p
+                                                                                                                    class="camera-spec">
+                                                                                                                    <%= product.camera.rear.digital_zoom
+                                                                                                                        %>
+                                                                                                                </p>
+                                                                                                                <% } %>
+                                                                </div>
+                                                                <% } %>
+
+                                                                    <% if (product.camera.front) { %>
+                                                                        <div class="Camera-Front">
+                                                                            <div class="line"></div>
+                                                                            <div class="camera-section">
+                                                                                <h4 class="camera-label">Front:</h4>
+                                                                                <p class="camera-subtitle">Main:</p>
+                                                                                <p class="camera-spec">
+                                                                                    <%= product.camera.front.resolution
+                                                                                        %>
+                                                                                </p>
+
+                                                                                <% if (product.camera.front.feature) {
+                                                                                    %>
+                                                                                    <p class="camera-subtitle">Feature:
+                                                                                    </p>
+                                                                                    <p class="camera-spec">
+                                                                                        <%= product.camera.front.feature
+                                                                                            %>
+                                                                                    </p>
+                                                                                    <% } %>
+
+                                                                                        <% if
+                                                                                            (product.camera.front.type)
+                                                                                            { %>
+                                                                                            <p class="camera-subtitle">
+                                                                                                Type:</p>
+                                                                                            <p class="camera-spec">
+                                                                                                <%= product.camera.front.type
+                                                                                                    %>
+                                                                                            </p>
+                                                                                            <% } %>
+                                                                            </div>
+                                                                        </div>
+                                                                        <% } %>
+                                                        </div>
+                                                    </div>
+                                                    <% } %>
+
+                                                        <!-- Display -->
+                                                        <% if (product.display) { %>
+                                                            <div class="feature-card">
+                                                                <div class="FeaturesTopic">
+                                                                    <div class="feature-icon">📱</div>
+                                                                    <h3 class="feature-title">Display:</h3>
+                                                                </div>
+                                                                <% if (product.display.type) { %>
+                                                                    <p class="feature-Displayname">
+                                                                        <%= product.display.type %>
+                                                                    </p>
+                                                                    <% } %>
+                                                                        <% if (product.display.size) { %>
+                                                                            <span class="feature-subtitle">size:</span>
+                                                                            <p class="feature-DisplaySize">
+                                                                                <%= product.display.size %>
+                                                                            </p>
+                                                                            <% } %>
+                                                                                <% if (product.display.features &&
+                                                                                    product.display.features.length> 0)
+                                                                                    { %>
+                                                                                    <p class="feature-subtitle">
+                                                                                        features:</p>
+                                                                                    <ul class="feature-list-small">
+                                                                                        <% product.display.features.forEach(function(feature)
+                                                                                            { %>
+                                                                                            <li>
+                                                                                                <%= feature %>
+                                                                                            </li>
+                                                                                            <% }); %>
+                                                                                    </ul>
+                                                                                    <% } %>
+                                                            </div>
+                                                            <% } %>
+
+                                                                <!-- OS -->
+                                                                <% if (product.operating_system) { %>
+                                                                    <div class="feature-card">
+                                                                        <div class="FeaturesTopic">
+                                                                            <div class="feature-icon">⚙️</div>
+                                                                            <h3 class="feature-title">IOS:</h3>
+                                                                        </div>
+                                                                        <% if (product.operating_system.name) { %>
+                                                                            <p class="feature-value">
+                                                                                <%= product.operating_system.name %>
+                                                                            </p>
+                                                                            <% } %>
+                                                                                <% if
+                                                                                    (product.operating_system.upgradeable_to)
+                                                                                    { %>
+                                                                                    <p class="feature-subtitle">
+                                                                                        Upgradeable to: <%=
+                                                                                            product.operating_system.upgradeable_to
+                                                                                            %>
+                                                                                    </p>
+                                                                                    <% } %>
+                                                                                        <% if
+                                                                                            (product.operating_system.features
+                                                                                            &&
+                                                                                            product.operating_system.features.length>
+                                                                                            0) { %>
+                                                                                            <p class="feature-subtitle">
+                                                                                                features:</p>
+                                                                                            <ul
+                                                                                                class="feature-list-small">
+                                                                                                <% product.operating_system.features.forEach(function(feature)
+                                                                                                    { %>
+                                                                                                    <li>
+                                                                                                        <%= feature %>
+                                                                                                    </li>
+                                                                                                    <% }); %>
+                                                                                            </ul>
+                                                                                            <% } %>
+                                                                    </div>
+                                                                    <% } %>
+
+                                                                        <!-- Connectivity -->
+                                                                        <% if (product.connectivity) { %>
+                                                                            <div class="feature-card">
+                                                                                <div class="FeaturesTopic">
+                                                                                    <div class="feature-icon">📡</div>
+                                                                                    <h3 class="feature-title">
+                                                                                        Connectivity:</h3>
+                                                                                </div>
+                                                                                <div class="connectivity-list">
+                                                                                    <% if (product.connectivity.wifi) {
+                                                                                        %>
+                                                                                        <span
+                                                                                            class="feature-subtitle">Wi-Fi:</span>
+                                                                                        <p class="connectivity-item">
+                                                                                            <%= product.connectivity.wifi
+                                                                                                %>
+                                                                                        </p>
+                                                                                        <% } %>
+                                                                                            <% if
+                                                                                                (product.connectivity.bluetooth)
+                                                                                                { %>
+                                                                                                <span
+                                                                                                    class="feature-subtitle">Bluetooth:</span>
+                                                                                                <p
+                                                                                                    class="connectivity-item">
+                                                                                                    <%= product.connectivity.bluetooth
+                                                                                                        %>
+                                                                                                </p>
+                                                                                                <% } %>
+                                                                                                    <% if
+                                                                                                        (product.connectivity.cellular)
+                                                                                                        { %>
+                                                                                                        <span
+                                                                                                            class="feature-subtitle">Cellular:</span>
+                                                                                                        <p
+                                                                                                            class="connectivity-item">
+                                                                                                            <%= product.connectivity.cellular
+                                                                                                                %>
+                                                                                                        </p>
+                                                                                                        <% } %>
+                                                                                </div>
+                                                                            </div>
+                                                                            <% } %>
+
+                                                                                <!-- Build -->
+                                                                                <% if (product.build) { %>
+                                                                                    <div class="feature-card">
+                                                                                        <div class="FeaturesTopic">
+                                                                                            <div class="feature-icon">
+                                                                                                🏗️</div>
+                                                                                            <h3 class="feature-title">
+                                                                                                Build:</h3>
+                                                                                        </div>
+                                                                                        <% if (product.build.design) {
+                                                                                            %>
+                                                                                            <p class="feature-subtitle">
+                                                                                                Design:</p>
+                                                                                            <p class="feature-spec">
+                                                                                                <%= product.build.design
+                                                                                                    %>
+                                                                                            </p>
+                                                                                            <% } %>
+                                                                                                <% if
+                                                                                                    (product.build.frame)
+                                                                                                    { %>
+                                                                                                    <p
+                                                                                                        class="feature-subtitle">
+                                                                                                        Frame:</p>
+                                                                                                    <p
+                                                                                                        class="feature-spec">
+                                                                                                        <%= product.build.frame
+                                                                                                            %>
+                                                                                                    </p>
+                                                                                                    <% } %>
+                                                                                                        <% if
+                                                                                                            (product.build.glass)
+                                                                                                            { %>
+                                                                                                            <p
+                                                                                                                class="feature-subtitle">
+                                                                                                                Glass:
+                                                                                                            </p>
+                                                                                                            <p
+                                                                                                                class="feature-spec">
+                                                                                                                <%= product.build.glass
+                                                                                                                    %>
+                                                                                                            </p>
+                                                                                                            <% } %>
+                                                                                    </div>
+                                                                                    <% } %>
+
+                                                                                        <!-- Key Features (if available) -->
+                                                                                        <% if (product.key_features &&
+                                                                                            product.key_features.length>
+                                                                                            0) { %>
+                                                                                            <div
+                                                                                                class="feature-card feature-card-wide">
+                                                                                                <div
+                                                                                                    class="feature-icon">
+                                                                                                    ⭐</div>
+                                                                                                <h3
+                                                                                                    class="feature-title">
+                                                                                                    Key Features:</h3>
+                                                                                                <ul
+                                                                                                    class="feature-list">
+                                                                                                    <% product.key_features.forEach(function(feature)
+                                                                                                        { %>
+                                                                                                        <li>
+                                                                                                            <%= feature
+                                                                                                                %>
+                                                                                                        </li>
+                                                                                                        <% }); %>
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                            <% } %>
+            </div>
+        </section>
+    </div>
+    <script>
+        // Overlay menu toggle (slide from right), using header .menu-btn as trigger
+        (function () {
+            const menu = document.querySelector('.menu');
+            const overlay = document.querySelector('.menu-overlay');
+            const menuIcon = document.querySelector('.menu-btn');
+            const closeIcon = document.querySelector('.close-icon');
+            const open = () => { menu.classList.remove('hidden', 'translate-x-full', 'translate-x-[-100%]'); menu.classList.add('flex', 'translate-x-0'); overlay.classList.remove('hidden'); };
+            const close = () => { menu.classList.remove('translate-x-0'); menu.classList.add('translate-x-full'); overlay.classList.add('hidden'); };
+            menuIcon && menuIcon.addEventListener('click', open);
+            closeIcon && closeIcon.addEventListener('click', close);
+            overlay && overlay.addEventListener('click', close);
+        })();
+    </script>
+    <script>
+        // Add to Cart logic for Product Page - stores in localStorage to be read by Cart page
+        (function () {
+            const atcBtn = document.querySelector('.ATC-btn');
+            const buyBtn = document.querySelector('.buy-btn');
+
+            function parsePriceToNumber(priceStr) {
+                if (!priceStr) return 0;
+                const digits = (priceStr.match(/\d+/g) || []).join('');
+                return digits ? parseInt(digits, 10) : 0;
+            }
+
+            function addCurrentProductToCart() {
+                const key = '<%= product.product %>';
+                const priceStr = '<%= product.price_starting || product.price_2025 || "" %>';
+                const priceNum = parsePriceToNumber(priceStr);
+                const image = '<%= product.ProductImage || product.image || "/placeholder.png" %>';
+
+                let cart = [];
+                try { cart = JSON.parse(localStorage.getItem('cart')) || []; } catch (e) { cart = []; }
+
+                const existing = cart.find(item => item.key === key);
+                if (existing) {
+                    existing.quantity += 1;
+                    existing.selected = true;
+                } else {
+                    cart.push({
+                        key,
+                        name: key,
+                        price: priceStr || `₹${priceNum.toLocaleString('en-IN')}`,
+                        priceNum: priceNum,
+                        image: image,
+                        quantity: 1,
+                        selected: true
+                    });
+                }
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+                return cart;
+            }
+
+            atcBtn && atcBtn.addEventListener('click', function () {
+                addCurrentProductToCart();
+            });
+
+            buyBtn && buyBtn.addEventListener('click', function () {
+                addCurrentProductToCart();
+                window.location.href = '/Cart';
+            });
+        })();
+    </script>
+</body>
+
+</html>

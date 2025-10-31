@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - iPhone</title>
+    <link rel="icon" type="image/x-icon" href="/picsss/Logo/Logo.ico">
+    <link rel="stylesheet" href="/output.css">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/dm-serif-display');
+        @import url('https://fonts.cdnfonts.com/css/br-sonoma');
+
+        .nav-btn,
+        .nav-head {
+            font-family: 'BR Sonoma', sans-serif;
+        }
+
+        .support-title {
+            font-family: 'DM Serif Display', serif;
+        }
+
+        .support-text {
+            font-family: 'BR Sonoma', sans-serif;
+        }
+
+        .support-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-form {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
+    <!-- remix icon cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gradient-to-b from-black via-gray-900 to-black text-white min-h-screen">
+    <!-- Navigation -->
+    <div class="Navbar sticky h-[8rem] flex justify-between items-center bg-[linear-gradient(to_bottom,_#4b5563,_#1f2937,_#0d0d0d,_#000000)] z-[2]">
+        <a href="/" class="text-white text-2xl ml-8 hover:text-gray-300 transition-colors">
+            <i class="ri-arrow-left-line"></i> Back
+        </a>
+        <h1 class="nav-head text-white text-5xl font-bold font-poppins -tracking-tighter">Support</h1>
+        <div class="relative right-[2rem] justify-center flex gap-3">
+            <a href="/Login"><button
+                    class="nav-btn bg-white font-bold cursor-pointer border-white text-black p-1 w-[5rem] h-[30px] rounded-[5px]">Log
+                    in</button></a>
+            <a href="/Signup"><button
+                    class="nav-btn bg-white font-bold cursor-pointer border-white text-black p-1 w-[5rem] h-[30px] rounded-[5px]">Sign
+                    up</button></a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="container mx-auto px-6 py-16">
+        <div class="text-center mb-16">
+            <h1 class="support-title text-6xl font-bold mb-6 text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text">
+                How can we help you?
+            </h1>
+            <p class="support-text text-xl text-gray-300 max-w-2xl mx-auto">
+                Get the support you need for your iPhone and accessories. We're here to help you get the most out of your Apple experience.
+            </p>
+        </div>
+
+        <!-- Support Categories -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <!-- Technical Support -->
+            <div class="support-card rounded-2xl p-8 text-center">
+                <div class="text-5xl mb-4">
+                    <i class="ri-tools-line text-blue-400"></i>
+                </div>
+                <h3 class="support-title text-2xl font-bold mb-4">Technical Support</h3>
+                <p class="support-text text-gray-300 mb-6">
+                    Get help with device setup, troubleshooting, and technical issues.
+                </p>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-colors">
+                    Get Help
+                </button>
+            </div>
+
+            <!-- Warranty & Repairs -->
+            <div class="support-card rounded-2xl p-8 text-center">
+                <div class="text-5xl mb-4">
+                    <i class="ri-shield-check-line text-green-400"></i>
+                </div>
+                <h3 class="support-title text-2xl font-bold mb-4">Warranty & Repairs</h3>
+                <p class="support-text text-gray-300 mb-6">
+                    Check warranty status, schedule repairs, and track service requests.
+                </p>
+                <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-semibold transition-colors">
+                    Check Status
+                </button>
+            </div>
+
+            <!-- Account & Billing -->
+            <div class="support-card rounded-2xl p-8 text-center">
+                <div class="text-5xl mb-4">
+                    <i class="ri-user-settings-line text-purple-400"></i>
+                </div>
+                <h3 class="support-title text-2xl font-bold mb-4">Account & Billing</h3>
+                <p class="support-text text-gray-300 mb-6">
+                    Manage your account, billing information, and subscription services.
+                </p>
+                <button class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-full font-semibold transition-colors">
+                    Manage Account
+                </button>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="mb-16">
+            <h2 class="support-title text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="support-card rounded-xl p-6">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(1)">
+                        <h3 class="support-text text-xl font-semibold">How do I set up my new iPhone?</h3>
+                        <i class="ri-arrow-down-s-line text-2xl transition-transform" id="faq-arrow-1"></i>
+                    </div>
+                    <div class="hidden mt-4 text-gray-300 support-text" id="faq-content-1">
+                        <p>Setting up your iPhone is easy. Turn on your device, follow the on-screen instructions, and use Quick Start to transfer data from your old device. You can also restore from an iCloud or iTunes backup.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="support-card rounded-xl p-6">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(2)">
+                        <h3 class="support-text text-xl font-semibold">What should I do if my iPhone won't turn on?</h3>
+                        <i class="ri-arrow-down-s-line text-2xl transition-transform" id="faq-arrow-2"></i>
+                    </div>
+                    <div class="hidden mt-4 text-gray-300 support-text" id="faq-content-2">
+                        <p>Try charging your iPhone for at least 15 minutes, then press and hold the power button. If it still won't turn on, try a force restart by pressing and holding both the power and volume down buttons.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="support-card rounded-xl p-6">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(3)">
+                        <h3 class="support-text text-xl font-semibold">How do I check my warranty status?</h3>
+                        <i class="ri-arrow-down-s-line text-2xl transition-transform" id="faq-arrow-3"></i>
+                    </div>
+                    <div class="hidden mt-4 text-gray-300 support-text" id="faq-content-3">
+                        <p>You can check your warranty status by going to Settings > General > About and finding your serial number, then visiting Apple's warranty check website or contacting support.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="support-card rounded-xl p-6">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(4)">
+                        <h3 class="support-text text-xl font-semibold">How do I backup my iPhone?</h3>
+                        <i class="ri-arrow-down-s-line text-2xl transition-transform" id="faq-arrow-4"></i>
+                    </div>
+                    <div class="hidden mt-4 text-gray-300 support-text" id="faq-content-4">
+                        <p>You can backup your iPhone to iCloud by going to Settings > [Your Name] > iCloud > iCloud Backup, or to your computer using iTunes or Finder. We recommend regular backups to keep your data safe.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="max-w-2xl mx-auto">
+            <h2 class="support-title text-4xl font-bold text-center mb-8">Still need help?</h2>
+            <div class="contact-form rounded-2xl p-8">
+                <form>
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">First Name</label>
+                            <input type="text" class="form-input w-full px-4 py-3 rounded-lg" placeholder="Enter your first name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Last Name</label>
+                            <input type="text" class="form-input w-full px-4 py-3 rounded-lg" placeholder="Enter your last name">
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold mb-2">Email</label>
+                        <input type="email" class="form-input w-full px-4 py-3 rounded-lg" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold mb-2">Subject</label>
+                        <select class="form-input w-full px-4 py-3 rounded-lg">
+                            <option>Select a topic</option>
+                            <option>Technical Support</option>
+                            <option>Warranty & Repairs</option>
+                            <option>Account & Billing</option>
+                            <option>General Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold mb-2">Message</label>
+                        <textarea class="form-input w-full px-4 py-3 rounded-lg h-32 resize-none" placeholder="Describe your issue or question..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-white text-black font-bold py-4 rounded-lg hover:bg-gray-200 transition-colors">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="text-center mt-16">
+            <h3 class="support-title text-2xl font-bold mb-6">Other ways to reach us</h3>
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <i class="ri-phone-line text-3xl text-blue-400 mb-3"></i>
+                    <h4 class="font-semibold mb-2">Phone Support</h4>
+                    <p class="text-gray-300">1-800-APL-CARE</p>
+                    <p class="text-sm text-gray-400">Available 24/7</p>
+                </div>
+                <div class="text-center">
+                    <i class="ri-chat-3-line text-3xl text-green-400 mb-3"></i>
+                    <h4 class="font-semibold mb-2">Live Chat</h4>
+                    <p class="text-gray-300">Chat with an expert</p>
+                    <p class="text-sm text-gray-400">Mon-Fri 9AM-9PM</p>
+                </div>
+                <div class="text-center">
+                    <i class="ri-map-pin-line text-3xl text-purple-400 mb-3"></i>
+                    <h4 class="font-semibold mb-2">Visit Store</h4>
+                    <p class="text-gray-300">Find a store near you</p>
+                    <p class="text-sm text-gray-400">Book an appointment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleFAQ(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const arrow = document.getElementById(`faq-arrow-${id}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                arrow.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                arrow.style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,278 @@
+[
+    {
+        "product": "Apple Pencil (USB-C)",
+        "description": "An affordable modern Apple Pencil designed for students and everyday users for note-taking, annotating, and sketching, delivering core Apple Pencil features in a more accessible package.",
+        "price": "₹7,900",
+        "key_features": {
+            "core_experience": {
+                "pixel_perfect_precision": "High accuracy and low latency similar to advanced models.",
+                "tilt_sensitivity": "Tilt the pencil to shade and create artistic effects.",
+                "apple_pencil_hover": "Preview your mark on compatible iPads before making it.",
+                "note": "Does not feature pressure sensitivity, unlike Pro models."
+            },
+            "design_and_connectivity": {
+                "usb_c_pairing_and_charging": "Sliding cap reveals USB-C port for pairing and charging with standard cable.",
+                "magnetic_attachment": "Attaches magnetically to compatible iPads for storage (does not charge this way)."
+            }
+        },
+        "technical_specifications": {
+            "length": "155 mm (6.10 inches)",
+            "diameter": "8.9 mm (0.35 inches)",
+            "weight": "20.5 grams (0.72 ounces)",
+            "connection": "Bluetooth and USB-C port"
+        },
+        "compatibility": [
+            "iPad Pro 13-inch (M4)",
+            "iPad Pro 11-inch (M4)",
+            "iPad Air 13-inch (M3)",
+            "iPad Air 11-inch (M3)",
+            "iPad (11th generation)",
+            "iPad (10th generation)",
+            "iPad mini (7th generation)",
+            "iPad mini (6th generation)"
+        ]
+    },
+    {
+        "product": "Apple Pencil Pro",
+        "description": "The ultimate tool for artists, designers, and professionals who demand the highest level of precision and functionality from their stylus, with intuitive new interactions.",
+        "price": "₹11,900",
+        "key_features": {
+            "advanced_tools": {
+                "squeeze": "Sensor detects pressure to bring up a tool palette for switching tools, line weights, and colors.",
+                "barrel_roll": "Built-in gyroscope allows rotating the Pencil to change orientation of pen and brush tools.",
+                "haptic_feedback": "Custom haptic engine provides tactile feedback for actions like squeeze and smart shapes."
+            },
+            "core_technologies": {
+                "pixel_perfect_precision": "Low latency for natural and responsive feel.",
+                "tilt_and_pressure_sensitivity": "Allows varying line weight and natural shading effects.",
+                "apple_pencil_hover": "Preview of your mark before applying on compatible iPads for greater precision."
+            },
+            "design_and_connectivity": {
+                "magnetic_pairing_and_charging": "Attaches magnetically to iPad for automatic pairing, charging, and secure storage.",
+                "find_my_support": "Integrated with Find My network to locate if misplaced."
+            }
+        },
+        "technical_specifications": {
+            "length": "166 mm (6.53 inches)",
+            "diameter": "8.9 mm (0.35 inches)",
+            "weight": "20.7 grams (0.73 ounces)",
+            "connection": "Bluetooth"
+        },
+        "compatibility": [
+            "iPad Pro 13-inch (M4)",
+            "iPad Pro 11-inch (M4)",
+            "iPad Air 13-inch (M3)",
+            "iPad Air 11-inch (M3)"
+        ]
+    },
+    {
+        "product": "Apple Magic Mouse",
+        "description": "A wireless, rechargeable mouse designed to integrate seamlessly with the Apple ecosystem, featuring a minimalist design and a Multi-Touch surface for gesture-based navigation.",
+        "price": "₹9,500",
+        "design_and_build": {
+            "colors": [
+                "White",
+                "Black"
+            ],
+            "materials": "Seamless Multi-Touch top shell with sturdy aluminum base",
+            "foot_design": "Optimized foot design for stability and smooth gliding"
+        },
+        "key_features": {
+            "multi_touch_surface": "Entire top surface supports gestures directly on the mouse",
+            "scroll": "Slide one finger vertically or horizontally",
+            "swipe": "Swipe with two fingers to navigate between pages or photos",
+            "mission_control": "Double-tap with two fingers to open Mission Control on Mac",
+            "rechargeable_battery": "Long-lasting battery, typically over a month per charge"
+        },
+        "charging_and_connectivity": {
+            "charging_port": "Lightning port on bottom; USB-C to Lightning cable included. Mouse cannot be used while charging.",
+            "wireless_connectivity": "Bluetooth, quick and automatic pairing with Mac"
+        },
+        "technical_specifications": {
+            "height": "2.16 cm (0.85 inches)",
+            "width": "5.71 cm (2.25 inches)",
+            "depth": "11.35 cm (4.47 inches)",
+            "weight": "Approximately 99 grams (0.22 pounds)"
+        },
+        "system_requirements_and_compatibility": {
+            "mac": "Bluetooth-enabled Mac with OS X 11 (Big Sur) or later",
+            "ipad": "iPad with iPadOS 14.5 or later"
+        }
+    },
+    {
+        "product": "Magic Keyboard with Touch ID and Numeric Keypad",
+        "description": "Apple's premium full-size wireless keyboard offering an exceptional typing experience, extended layout, and the security and convenience of Touch ID, ideal for professionals working with spreadsheets, finance applications, and pro software.",
+        "price": "₹19,500",
+        "design_and_build": {
+            "layout": "Full-size extended layout with numeric keypad, document navigation controls, and full-size arrow keys",
+            "colors": [
+                "Silver aluminum with white keys",
+                "Space Black aluminum with black keys"
+            ],
+            "key_mechanism": "Stable scissor mechanism beneath each key for comfortable, responsive, and precise typing"
+        },
+        "key_features": {
+            "touch_id": "Fast, easy, and secure authentication",
+            "logins": "Unlock Mac, log into apps, and access system settings with a touch",
+            "apple_pay": "Authorize online purchases securely",
+            "password_autofill": "Authenticate saved passwords in Safari and apps",
+            "rechargeable_battery": "Internal lithium-ion battery typically lasts about a month per charge"
+        },
+        "charging_and_connectivity": {
+            "charging_port": "USB-C port on back; included USB-C to Lightning cable; keyboard usable while charging",
+            "wireless_connectivity": "Bluetooth, automatic pairing for clutter-free setup"
+        },
+        "technical_specifications": {
+            "height": "0.41–1.09 cm (0.16–0.43 inches)",
+            "width": "41.87 cm (16.48 inches)",
+            "depth": "11.49 cm (4.52 inches)",
+            "weight": "Approximately 369 grams (0.81 pounds)"
+        },
+        "system_requirements_and_compatibility": {
+            "touch_id_functionality": "Mac with Apple silicon (M1, M2, M3, M4 series or later) running macOS 11.4 or later",
+            "standard_keyboard_functionality": [
+                "Other Mac models running macOS 11.4 or later",
+                "iPhone running iOS 14.5 or later",
+                "iPad running iPadOS 14.5 or later"
+            ]
+        }
+    },
+    {
+        "product": "Magic Trackpad",
+        "description": "Brings the full range of Multi-Touch gestures and Force Touch technology from the MacBook to your desktop, with a large edge-to-edge glass surface for scrolling, swiping, and clicking.",
+        "price": "₹14,500",
+        "design_and_build": {
+            "colors": [
+                "White",
+                "Black"
+            ],
+            "surface": "Large, durable edge-to-edge glass optimized for smooth gesturing",
+            "profile": "Low, comfortable profile that sits neatly on a desk alongside a keyboard"
+        },
+        "key_features": {
+            "multi_touch_gestures": [
+                "Pinch to zoom in on photos and documents",
+                "Swipe between full-screen apps and web pages",
+                "Scroll through documents and websites",
+                "Tap or double-tap to click",
+                "Open Mission Control or Notification Center"
+            ],
+            "force_touch_technology": "Sensors detect subtle differences in pressure applied",
+            "force_click": "Press down and apply more pressure to access advanced features like definitions, file previews, or creating calendar events",
+            "pressure_sensitive_drawing": "Enables pressure-sensitive input in creative apps, similar to a drawing tablet"
+        }
+    },
+    {
+        "product": "iPhone Silicone Case with MagSafe",
+        "description": "A classic silicone case offering excellent everyday protection with a soft-touch feel, available in multiple colors to match your style.",
+        "price": "₹4,900",
+        "overview": "Fits snugly over the volume buttons, side button, and curves of your iPhone without adding bulk. Soft-touch silicone exterior feels great in hand.",
+        "material_and_protection": {
+            "exterior": "High-quality silicone",
+            "interior": "Soft microfiber lining to protect from scratches",
+            "protection": "Tested extensively to protect from everyday drops and scuffs"
+        },
+        "features": {
+            "mag_safe": "Built-in magnets align perfectly for seamless attachment to iPhone",
+            "wireless_charging": "Magnets enable faster and easier wireless charging; compatible with MagSafe and Qi-certified chargers"
+        },
+        "compatibility": [
+            "iPhone 17 Series",
+            "iPhone 16 Series",
+            "iPhone 15 Series"
+        ]
+    },
+    {
+        "product": "iPhone FineWoven Case with MagSafe",
+        "description": "A premium, eco-friendly case that provides stylish protection and a unique textured feel for your iPhone.",
+        "price": "₹5,900",
+        "overview": "Made from durable microtwill, the case has a soft, suede-like feel. Designed as an alternative to leather, combining style with environmental responsibility.",
+        "material_and_protection": {
+            "material": "68% post-consumer recycled content, reducing carbon emissions compared to leather",
+            "protection": "Protects iPhone from scratches and drops; develops a slight patina over time for a unique look"
+        },
+        "features": {
+            "mag_safe": "Built-in magnets ensure perfect alignment and faster wireless charging",
+            "texture": "Provides a comfortable and unique texture distinct from silicone or clear cases"
+        },
+        "compatibility": [
+            "iPhone 17 Series",
+            "iPhone 16 Series",
+            "iPhone 15 Series"
+        ]
+    },
+    {
+        "product": "iPhone Clear Case with MagSafe",
+        "description": "A thin, light, and protective case that shows off the iPhone's design while providing a secure grip and solid protection.",
+        "price": "₹4,900",
+        "overview": "Crafted from a blend of optically clear polycarbonate and flexible materials, designed by Apple for easy grip and minimal bulk.",
+        "material_and_protection": {
+            "material": "Scratch-resistant coating on interior and exterior; optimized to prevent yellowing over time",
+            "protection": "Reliable protection against drops and scratches without hiding the iPhone's design"
+        },
+        "features": {
+            "mag_safe": "Built-in magnets ensure perfect alignment for attachment and faster, efficient wireless charging; magnet ring complements case design"
+        },
+        "compatibility": [
+            "iPhone 17 Series",
+            "iPhone 16 Series",
+            "iPhone 15 Series"
+        ]
+    },
+    {
+        "product": "MagSafe Charger",
+        "description": "A wireless charger that makes charging faster and more convenient, with integrated magnets for perfect alignment with your iPhone.",
+        "price": "₹4,500",
+        "overview": "Provides a seamless wireless charging experience with optimal connection and faster efficiency due to perfectly aligned magnets.",
+        "features": {
+            "perfect_alignment": "Magnetic connection ensures correct positioning for wireless charging without fumbling.",
+            "faster_wireless_charging": "Delivers up to 15W peak power for quicker charging compared to standard Qi chargers.",
+            "qi_compatibility": "Compatible with Qi charging for older iPhones (iPhone 8 or later) and AirPods with wireless charging case."
+        },
+        "system_requirements": {
+            "recommended_power_adapter": "20W USB-C Power Adapter (sold separately) for optimal performance"
+        },
+        "compatibility": {
+            "mag_safe_charging": "iPhone 12 series or later (up to 15W)",
+            "qi_charging": "iPhone 8 or later, AirPods with Wireless Charging Case"
+        }
+    },
+    {
+        "product": "MagSafe Duo Charger",
+        "description": "A foldable, dual charging solution that lets you charge your iPhone and Apple Watch simultaneously, ideal for travel and minimalist setups.",
+        "price": "₹15,900",
+        "overview": "Features two charging pads in one elegant, foldable design. Powers up your compatible iPhone and Apple Watch at the same time and folds neatly for portability.",
+        "features": {
+            "dual_charging": "Charge iPhone on one side and Apple Watch on the other simultaneously",
+            "foldable_design": "Compact, foldable design for travel or a minimalist desk setup",
+            "apple_watch_puck": "Flippable Apple Watch charger supports Nightstand mode"
+        },
+        "system_requirements": {
+            "recommended_power_adapter": "27W or higher USB-C Power Adapter (sold separately) for fastest charging"
+        },
+        "compatibility": [
+            "All MagSafe-enabled iPhones (iPhone 12 series or later)",
+            "All Apple Watch models",
+            "All AirPods models with a Wireless Charging Case",
+            "Other Qi-certified devices"
+        ]
+    },
+    {
+        "product": "MagSafe Battery Pack",
+        "description": "A compact and intuitive battery pack that provides extra hours of battery life on the go, with perfectly aligned magnets for seamless attachment to your iPhone.",
+        "price": "₹10,900",
+        "overview": "Provides a safe and reliable power boost without buttons or cables. Magnets ensure proper alignment for on-the-go charging.",
+        "features": {
+            "automatic_charging": "Starts charging automatically when attached to iPhone",
+            "intelligent_charging": "Communicates with iPhone for a safe, optimized charge, preventing overcharging",
+            "reverse_charging": "Charges both iPhone and battery pack simultaneously when iPhone is plugged into power",
+            "charge_status": "Track charge status on Lock Screen and Today View widgets"
+        },
+        "system_requirements": {
+            "recommended_power_adapter": "20W or higher USB-C Power Adapter and USB-C to Lightning cable (sold separately) for faster charging of the pack"
+        },
+        "compatibility": [
+            "All MagSafe-enabled iPhones (iPhone 12 series or later)"
+        ]
+    }
+]
