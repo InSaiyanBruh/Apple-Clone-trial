@@ -1,3 +1,0 @@
-npx @tailwindcss/cli -i ./public/style.css -o ./public/output.css --watch
-
-bg-[linear-gradient(to_bottom,_#3d3d3d,_#212121,_#000000)]
